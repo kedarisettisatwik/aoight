@@ -60,7 +60,7 @@ function App() {
           <h1>Contact </h1>
           <a className="flex" href='tel:+917834221286' target='_blank' rel="noreferrer"> <i className="fas fa-phone-alt"></i> 7834221286</a>
           <a className="flex" href='mailto:Aoighthelp@gmail.com' target='_blank' rel="noreferrer"><i className="fas fa-envelope"></i> Aoighthelp@gmail.com</a>
-          <h3>Follow Us  </h3>
+          <h3>Follow Us ! </h3>
           <a className="flex" href='https://www.instagram.com/satwikkedaresetti/' target='_blank' rel="noreferrer"><i className="fab fa-instagram"></i> satwikkedaresetti </a>
           <a className="flex" href='https://www.youtube.com/channel/UCpLOopnR9TX9b1fjcDpapsw' target='_blank' rel="noreferrer"><i className="fab fa-youtube"></i> Kedar Satwik </a>
           <img src={coder} alt='coder'></img>
