@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/aoight/static/css/main.073c9b0a.css",
-    "main.js": "/aoight/static/js/main.65caca9e.js",
+    "main.css": "/aoight/static/css/main.18988a81.css",
+    "main.js": "/aoight/static/js/main.04887011.js",
     "static/js/787.0ca863a7.chunk.js": "/aoight/static/js/787.0ca863a7.chunk.js",
-    "static/media/logo.svg": "/aoight/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/coder.png": "/aoight/static/media/coder.a8de8c828a91d3922291.png",
+    "static/media/logo.png": "/aoight/static/media/logo.4b58001bdd9ca5dea5b7.png",
     "index.html": "/aoight/index.html",
-    "main.073c9b0a.css.map": "/aoight/static/css/main.073c9b0a.css.map",
-    "main.65caca9e.js.map": "/aoight/static/js/main.65caca9e.js.map",
+    "main.18988a81.css.map": "/aoight/static/css/main.18988a81.css.map",
+    "main.04887011.js.map": "/aoight/static/js/main.04887011.js.map",
     "787.0ca863a7.chunk.js.map": "/aoight/static/js/787.0ca863a7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.65caca9e.js"
+    "static/css/main.18988a81.css",
+    "static/js/main.04887011.js"
   ]
 }
