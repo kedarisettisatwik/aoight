@@ -6,8 +6,12 @@ import Reviews from './Review';
 import coder from './assests/coder.png'; 
 import React from 'react';
 
+import Dash from './Pages/Dashboard';
+
 // import firebase from 'firebase/compat/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
+
 
 function App() {
 
@@ -29,7 +33,8 @@ function App() {
       // const token = credential.accessToken;
       const user = result.user;
       console.log(user);
-      alert(user.photoURL);
+      // alert(user.photoURL);
+
   }).catch((error) => {
     console.log(error);
   });
@@ -66,9 +71,10 @@ function App() {
           <img src={coder} alt='coder'></img>
         </div>
       </div>
-
+      
     </>
   );
+  
 }
 
 
