@@ -5,6 +5,7 @@ import Join from './Join';
 import Reviews from './Review';
 import coder from './assests/coder.png'; 
 import React from 'react';
+import { Link  } from 'react-router-dom';
 
 import Dash from './Pages/Dashboard';
 
@@ -49,7 +50,7 @@ function Intro() {
           Allow's you to chat with your friends, manage your tasks, create a portifilo etc..</p>
           <div className='button'>
             <button onClick={Google_sign}>Get Started</button>
-            <button onClick={goto1}>Contact </button>
+            <button onClick={goto1}><Link to='/aoight-dashboard'>Contact</Link> </button>
           </div>
         <Join />
         </div>
