@@ -5,9 +5,7 @@ import Join from './Join';
 import Reviews from './Review';
 import coder from './assests/coder.png'; 
 import React from 'react';
-import { Link  } from 'react-router-dom';
 
-import Dash from './Pages/Dashboard';
 
 // import firebase from 'firebase/compat/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -22,21 +20,19 @@ function Intro() {
   }
 
   const Google_sign = () =>{
+      const provider = new GoogleAuthProvider();
+      const auth = getAuth();
     
-    const provider = new GoogleAuthProvider();
-    const auth = getAuth();
-    
-    signInWithPopup(auth, provider).then((result) => {
-      // console.log(result); 
-      // const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken;
-      const user = result.user;
-      console.log(user);
-      // alert(user.photoURL);
-  }).catch((error) => {
-    console.log(error);
-  });
-
+      signInWithPopup(auth, provider).then((result) => {
+         // console.log(result); 
+         // const credential = GoogleAuthProvider.credentialFromResult(result);
+        // const token = credential.accessToken;
+        console.log(result.user);
+        // alert(user.photoURL);
+        // window.location.href = '/#/aoight-dashboard';
+      }).catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
@@ -50,7 +46,7 @@ function Intro() {
           Allow's you to chat with your friends, manage your tasks, create a portifilo etc..</p>
           <div className='button'>
             <button onClick={Google_sign}>Get Started</button>
-            <button onClick={goto1}><Link to='/aoight-dashboard'>Contact</Link> </button>
+            <button onClick={goto1}>Download <i className="fas fa-cloud-download-alt"></i> </button>
           </div>
         <Join />
         </div>
@@ -74,6 +70,5 @@ function Intro() {
   );
   
 }
-
 
 export default Intro;
