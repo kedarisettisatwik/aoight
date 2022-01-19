@@ -31,7 +31,7 @@ function Intro() {
         var user_data = [user.displayName,user.email,user.emailVerified,user.photoURL,user.metadata.lastLoginAt];
         console.log(user);
         console.log(user_data);
-        var user_data = JSON.stringify(user_data);
+        user_data = JSON.stringify(user_data);
         localStorage.setItem("user", user_data);
         setTimeout(function(){
           console.log(localStorage.setItem('user'));
