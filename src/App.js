@@ -8,7 +8,7 @@ import Dash from './Pages/Dashboard';
 function App(){
   return (
     <Routes>
-      <Route path="/" exact element={<Intro />} />
+       <Route path="/" exact element={<Intro />} />
        <Route path="/aoight-start" exact element={<Intro />} />
        <Route path="/aoight-dashboard" exact element={<Dash />} />
     </Routes>
