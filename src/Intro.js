@@ -24,12 +24,19 @@ function Intro() {
       const auth = getAuth();
     
       signInWithPopup(auth, provider).then((result) => {
-         // console.log(result); 
-         // const credential = GoogleAuthProvider.credentialFromResult(result);
-        // const token = credential.accessToken;
-        console.log(result.user);
-        // alert(user.photoURL);
-        // window.location.href = '/#/aoight-dashboard';
+        //  console.log(result); 
+        //  const credential = GoogleAuthProvider.credentialFromResult(result);
+        //  const token = credential.accessToken;
+        const user = result.user;
+        var user_data = [user.displayName,user.email,user.emailVerified,user.photoURL,user.metadata.lastLoginAt];
+        console.log(user);
+        console.log(user_data);
+        var user_data = JSON.stringify(user_data);
+        localStorage.setItem("user", user_data);
+        setTimeout(function(){
+          console.log(localStorage.setItem('user'));
+          // window.location.href = '/#/aoight-dashboard';
+        },500);
       }).catch((error) => {
         console.log(error);
       });
