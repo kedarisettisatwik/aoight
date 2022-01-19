@@ -9,6 +9,7 @@ function App(){
   return (
     <Routes>
        <Route path="/aoight" exact element={<Intro />} />
+       <Route path="/aoight/home" exact element={<Intro />} />
        <Route path="/aoight/dashboard" exact element={<Dash />} />
     </Routes>
   );
