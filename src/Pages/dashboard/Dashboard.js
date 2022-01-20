@@ -1,45 +1,30 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import Error from '../error/Error';
-// const user = JSON.parse(sessionStorage.getItem('user'));
+
+const Ele = () => {
+  const location = useLocation();
+  if (location.state){
+    return (
+      <h2>Name : {location.state.Name}</h2>
+    );
+  }else{
+    return (<Error/>);
+  }
+}
+
+
 
 function Board() {
 
-  const pageVariants = {
-    initial: {
-      x:"100vw",
-    },
-    in: {
-      x:"0",
-    },
-    out: {
-      x:"0vw",
-    },
-  }
+  return(
+    <>
+    <div className='flex' style={{"width":"100%","height":"100vh","position":"relative"}}>
+          <Ele/>
+    </div>
+    </>
+  );
 
-  const location = useLocation();
-
-  if (location.state){
-    return (
-      <motion.section
-  initial="initial"
-  animate="in"
-  exit="out"
-  variants={pageVariants}
-  transition={{ type: 'spring', bounce: 0.25 }}>
-
-         <div>
-             <h2>Name : {location.state.Name} </h2>
-         </div>
-
-      </motion.section>
-    );
-  }else{
-    return (
-      <Error/>
-    );
-  }
 }
 
 

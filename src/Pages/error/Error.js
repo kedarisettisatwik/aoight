@@ -5,7 +5,7 @@ function Error(){
     const style1 = {"position":"relative","width":"100vw","height":"100vh","display":"flex","justifyContent":"center","alignItems":"center"};
     return(
         <div className='box flex' style={style1}>
-            <img src={Error_img} alt='error' style={{"width":"400px","max-width":"100%"}}></img>
+            <img src={Error_img} alt='error' style={{"width":"400px","maxWidth":"100%"}}></img>
         </div>
     )
 }
