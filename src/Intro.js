@@ -5,12 +5,14 @@ import Join from './Join';
 import Reviews from './Review';
 import coder from './assests/coder.png'; 
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 // import firebase from 'firebase/compat/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 function Intro() {
+
+  const navigate = useNavigate();
 
   const con_ref = React.createRef();
 
@@ -28,15 +30,19 @@ function Intro() {
         //  const credential = GoogleAuthProvider.credentialFromResult(result);
         //  const token = credential.accessToken;
         const user = result.user;
-        var user_data = [user.displayName,user.email,user.emailVerified,user.photoURL,user.metadata.lastLoginAt];
-        console.log(user);
-        console.log(user_data);
-        user_data = JSON.stringify(user_data);
-        localStorage.setItem("user", user_data);
+        const user_data = {"Name" : user.displayName,
+                           "Email" : user.email,
+                          "verification" : user.emailVerified,
+                          "photo": user.photoURL,
+                          "LastLogin":user.metadata.lastLoginAt};
+        // console.log(user);
+        // console.log(user_data);
+        // sessionStorage.setItem("user", JSON.stringify(user_data));
         setTimeout(function(){
-          console.log(localStorage.setItem('user'));
           // window.location.href = '/#/aoight-dashboard';
-        },500);
+          navigate('/aoight-dashboard',{state:user_data});
+        },1000);
+
       }).catch((error) => {
         console.log(error);
       });
