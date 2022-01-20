@@ -252,7 +252,6 @@
     width:100vw;
     position:relative;
     align-items: stretch;
-    margin-bottom:20px;
 }
 #contact .box1, #contact .box2{
     width:50%;
@@ -458,3 +457,68 @@
 }
 
 /* contact   */
+
+/* companies */
+
+#companies{
+    position: relative;
+    width:100%;
+}
+#companies h4{
+    margin-bottom:5px;
+    width:100%;
+    padding-left:10px;
+    color:rgb(0,0,0,0.6);
+    font-size:23px;
+    letter-spacing:1px;
+    font-family: 'Caveat', cursive; 
+}
+#companies .list{
+    width:100%;
+    position: relative;
+    justify-content: space-around;
+    background-color: var(--blue);
+    padding:20px 10px;
+    flex-wrap: nowrap;
+}
+#companies a{
+    color: white;
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size:16px;
+    text-decoration: none;
+    cursor: pointer;
+    opacity:0.8;
+    transition:0.3s;
+    text-align: center;
+}
+#companies a:hover{
+    opacity: 1;
+}
+
+@media (max-width:638px){
+    #companies .list{
+        flex-wrap: wrap;
+        padding:10px;
+    }
+    #companies .list a{
+        width: calc(100% / 3);
+        margin:10px 0;
+    }
+}
+
+@media (max-width:370px){
+    #companies .list a{
+        width: calc(100% / 2);
+    }
+}
+
+@media (max-width:232px){
+    #companies .list a{
+        width: calc(100%);
+        text-align: left;
+        padding-left:10px;
+    }
+}
+
+/* companies */

@@ -78,7 +78,18 @@ function Intro() {
           <img src={coder} alt='coder'></img>
         </div>
       </div>
-      
+
+      <div id='companies'>
+        <h4>We are here because of these </h4>
+        <div className='list flex'>
+          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>Firebase</a>
+          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>Github</a>
+          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>Npm.js</a>
+          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>React.js</a>
+          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>Email.js</a>
+        </div>
+      </div>
+
     </>
   );
   
