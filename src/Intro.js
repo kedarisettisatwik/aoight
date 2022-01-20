@@ -6,6 +6,7 @@ import Reviews from './Review';
 import coder from './assests/coder.png'; 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 // import firebase from 'firebase/compat/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -48,8 +49,25 @@ function Intro() {
       });
   }
 
+  const pageVariants = {
+    initial: {
+      x:"100vw",
+    },
+    in: {
+      x:"0",
+    },
+    out: {
+      x:"0vw",
+    },
+  }
+
   return (
-    <>
+    <motion.section
+  initial="initial"
+  animate="in"
+  exit="out"
+  variants={pageVariants}
+  transition={{ type: 'spring',duration: 1 }}>
 
       <div className="flex" id='home'>
         <div className='box1'>
@@ -90,7 +108,7 @@ function Intro() {
         </div>
       </div>
 
-    </>
+    </motion.section>
   );
   
 }
