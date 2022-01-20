@@ -40,7 +40,7 @@ function Intro() {
         // sessionStorage.setItem("user", JSON.stringify(user_data));
         setTimeout(function(){
           // window.location.href = '/#/aoight-dashboard';
-          navigate('/aoight-dashboard',{state:user_data});
+          navigate('/aoight-dashboard',{state:user_data,replace:false});
         },1000);
 
       }).catch((error) => {
@@ -82,11 +82,11 @@ function Intro() {
       <div id='companies'>
         <h4>We are here because of these </h4>
         <div className='list flex'>
-          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>Firebase</a>
-          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>Github</a>
-          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>Npm.js</a>
-          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>React.js</a>
-          <a href='https://kedarisettisatwik.github.io' rel='noreferrer'>Email.js</a>
+          <a href='https://firebase.google.com/' rel='noreferrer' target='_blank'>Firebase</a>
+          <a href='https://github.com/' rel='noreferrer' target='_blank'>Github</a>
+          <a href='https://www.npmjs.com/' rel='noreferrer' target='_blank'>Npm.js</a>
+          <a href='https://reactjs.org/' rel='noreferrer' target='_blank'>React.js</a>
+          <a href='https://www.emailjs.com/' rel='noreferrer' target='_blank'>Email.js</a>
         </div>
       </div>
 
