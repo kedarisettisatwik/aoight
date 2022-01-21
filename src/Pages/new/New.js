@@ -18,6 +18,25 @@ const Ele = () => {
 }
 
 const Draw = () => {
+
+  const con_ref1 = React.createRef();
+  const con_ref2 = React.createRef();
+
+  const [classi,setClassi] = useState('input');
+
+  const list = ['https://lh3.googleusercontent.com/a-/AOh14GiS1xDkL47MBrHjTGcHtWrR-VkjdGAlO9Dt-mZPsw=s96-c-rg-br100','satwik kedar','satwik1330@gamil.com'];
+
+  const [details,setDetails] = useState(list);
+
+  const Change1 = (e) => {
+    if (e.target.value.length > 0){
+      setDetails([details[0],e.target.value,details[2]]);
+    }else{
+      setDetails([details[0],list[1],details[2]]);
+    }
+ }
+
+
   return (
     <>
     <div className='dec flex'>
@@ -31,10 +50,22 @@ const Draw = () => {
                  <br></br> We have gathered some information about you,
                  <br></br> Please Fill remaining details and continue.</p>
            <div className='image flex'><img src={Welcome} alt='welcome'></img></div>
-           <div className='input'>
-             <label>Name</label>
-             <input type='text' placeholder='User Name' required></input>
+           <h4>Choose your Profile Pic : </h4>
+           <div className='pro_img flex'>
+             <img src={details[0]} alt='pro'></img>
+             <i className="fas fa-camera"></i>
            </div>
+           <div className={classi} ref={con_ref1}>
+             <label>User Name </label>
+             <input type='text' value={details[1]} onFocus={() => setClassi('input active')} onBlur={() => setClassi('input')} onChange={Change1} ref={con_ref2}></input>
+             <i className="fas fa-pen options"></i>
+           </div>
+           <div className='input lock'>
+             <label>Email </label>
+             <input type='text' contentEditable='false' value={details[2]}></input>
+             <i className="fas fa-lock options"></i>
+           </div>
+
         </div>
       </div>
     </div>
