@@ -63,7 +63,8 @@ function Intro() {
           <p>This will make your messaging, managing your works easier.<br></br>
           Allow's you to chat with your friends, manage your tasks, create a portifilo etc..</p>
           <div className='button'>
-            <button onClick={Google_sign}>Get Started</button>
+            {/* <button onClick={Google_sign}>Get Started</button> */}
+            <button onClick={() => navigate('/aoight-new',{replace:false})}>Get Started</button>
             <button onClick={goto1}>Download <i className="fas fa-cloud-download-alt"></i> </button>
           </div>
         <Join />
