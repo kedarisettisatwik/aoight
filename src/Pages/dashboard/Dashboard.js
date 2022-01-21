@@ -1,16 +1,26 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Error from '../error/Error';
+import './dash.css';
 
 const Ele = () => {
   const location = useLocation();
   if (location.state){
     return (
       <>
-       <section className='screen'>
-         <img src={location.state.photo} alt='profile_pic'></img>
-          <h3>Name : {location.state.Name}</h3>
-          <p>Email : {location.state.Email}</p>
+       <section className='profile'>
+         <h4>Aoight</h4>
+         <div className='details'>
+             <img src={location.state.photo} alt='profile_pic'></img>
+             <h3>Name : {location.state.Name}</h3>
+             <p>Email : {location.state.Email}</p>
+         </div>
+         <ul>
+           <li>Dashboard</li>
+           <li>Explore</li>
+           <li>My Settings</li>
+           <li>Calender</li>
+         </ul>
        </section>
       </>
     );
@@ -25,7 +35,7 @@ function Board() {
 
   return(
     <>
-    <div className='flex' style={{"width":"100%","height":"100vh","position":"relative"}}>
+    <div className='flex screen'>
           <Ele/>
     </div>
     </>
