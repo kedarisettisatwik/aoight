@@ -34,11 +34,20 @@ function Intro() {
                            "Email" : user.email,
                           "verification" : user.emailVerified,
                           "photo": user.photoURL,
-                          "LastLogin":user.metadata.lastLoginAt};
+                          "LastLogin":user.metadata.lastLoginAt,
+                          "uid":user.uid};
         // console.log(user);
         // console.log(user_data);
         // sessionStorage.setItem("user", JSON.stringify(user_data));
-        navigate('/aoight-dashboard',{state:user_data,replace:false});
+
+        const diff = Math.abs(user.metadata.lastLoginAt - user.metadata.createdAt);
+
+        if (diff < 100 ){
+          navigate('/aoight-new',{state:user_data,replace:false});
+        }else{
+          navigate('/aoight-dashboard',{state:user_data,replace:false});
+        }
+
       }).catch((error) => {
         console.log(error);
       });
