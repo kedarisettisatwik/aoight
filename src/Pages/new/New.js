@@ -29,11 +29,14 @@ const Draw = () => {
   const [details,setDetails] = useState(list);
 
   const Change1 = (e) => {
-    if (e.target.value.length > 0){
-      setDetails([details[0],e.target.value,details[2]]);
-    }else{
-      setDetails([details[0],list[1],details[2]]);
-    }
+    setDetails([details[0],e.target.value,details[2]]);
+ }
+
+ const Blur1 = (e) => {
+  if (e.target.value.length === 0){
+    setDetails([details[0],list[1],details[2]]);
+  }
+  setClassi('input');
  }
 
 
@@ -57,7 +60,7 @@ const Draw = () => {
            </div>
            <div className={classi} ref={con_ref1}>
              <label>User Name </label>
-             <input type='text' value={details[1]} onFocus={() => setClassi('input active')} onBlur={() => setClassi('input')} onChange={Change1} ref={con_ref2}></input>
+             <input type='text' value={details[1]} placeholder={list[1]} onFocus={() => setClassi('input active')} onBlur={Blur1} onChange={Change1} ref={con_ref2}></input>
              <i className="fas fa-pen options"></i>
            </div>
            <div className='input lock'>
@@ -65,7 +68,10 @@ const Draw = () => {
              <input type='text' contentEditable='false' value={details[2]}></input>
              <i className="fas fa-lock options"></i>
            </div>
-
+           <div className='buttons flex'>
+             <button>cancel</button>
+             <button>continue</button>
+           </div>
         </div>
       </div>
     </div>
