@@ -52,36 +52,36 @@
     background-color:black;
     border-radius:5px;
 }
-.screen .form .box1 .box2 p{
+.screen .form .box1 .box2.active p{
     width:100%;
     padding:0 10px;
     font-size:14px;
     line-height:30px;
     margin-bottom:20px;
 }
-.screen .form .box1 .box2 p strong:nth-child(1){
+.screen .form .box1 .box2.active p strong:nth-child(1){
     font-size:16px;
 }
-.screen .form .box1 .box2 p strong{
+.screen .form .box1 .box2.active p strong{
     color:var(--blue2);
     letter-spacing: 1px;
 }
-.screen .form .box1 .box2 .image{
+.screen .form .box1 .box2.active .image{
     display: none;
 }
-.screen .form .box1 .box2 .image img{
+.screen .form .box1 .box2.active .image img{
     width:250px;
 }
-.screen .form .box1 .box2 h4{
+.screen .form .box1 .box2.active h4{
     letter-spacing: 1px;
     font-size:13px;
     position: relative;
 }
-.screen .form .box1 .box2 .pro_img{
+.screen .form .box1 .box2.active .pro_img{
     position: relative;
     margin:15px 0 25px 0;
 }
-.screen .form .box1 .box2 .pro_img img{
+.screen .form .box1 .box2.active .pro_img img{
     width:90px;
     height:90px;
     border-radius:50%;
@@ -89,7 +89,7 @@
     padding:5px;
     position: relative;
 }
-.screen .form .box1 .box2 .pro_img::before{
+.screen .form .box1 .box2.active .pro_img::before{
     content:'';
     position: absolute;
     width:90px;
@@ -99,7 +99,7 @@
     border-top:2px dashed var(--blue1);
     transform:rotateZ(-30deg);
 }
-.screen .form .box1 .box2 .pro_img i{
+.screen .form .box1 .box2.active .pro_img i{
     position:absolute;
     bottom:0px;
     left: calc(50% + 45px - 20px);
@@ -112,10 +112,10 @@
     transition:0.3s;
     background-color: white;
 }
-.screen .form .box1 .box2 .pro_img i:hover{
+.screen .form .box1 .box2.active .pro_img i:hover{
     color:var(--blue1);
 }
-.screen .form .box1 .box2 .input{
+.screen .form .box1 .box2.active .input{
     width:calc(100% - 15px);
     position: relative;
     margin:25px 0;
@@ -124,10 +124,10 @@
     border:2px solid rgb(0,0,0,0.1);
     transition:0.4s;
 }
-.screen .form .box1 .box2 .input.active{
+.screen .form .box1 .box2.active .input.active{
     border:2px solid rgba(108,38,223,255);
 }
-.screen .form .box1 .box2 .input label{
+.screen .form .box1 .box2.active .input label{
     position:absolute;
     top:0;
     left:10px;
@@ -139,11 +139,11 @@
     letter-spacing:1px;
     font-weight:500;
 }
-.screen .form .box1 .box2 .input.active label{
+.screen .form .box1 .box2.active .input.active label{
     color: var(--blue2);
     font-weight:600;
 }
-.screen .form .box1 .box2 .input input{
+.screen .form .box1 .box2.active .input input{
     outline: none;
     border: none;
     background: none;
@@ -156,14 +156,14 @@
     font-weight:500;
     letter-spacing:0.5px;
 }
-.screen .form .box1 .box2 .input i.options{
+.screen .form .box1 .box2.active .input i.options{
     position:absolute;
     transform:translateY(-50%);
     top:50%;
     right:10px;
     color:rgb(0,0,0,0.4);
 }
-.screen .form .box1 .box2 .input.lock::after{
+.screen .form .box1 .box2.active .input.lock::after{
     content:'';
     position:absolute;
     top:0;
@@ -173,12 +173,12 @@
     background-color: transparent;
     cursor:not-allowed;
 }
-.screen .form .box1 .box2 .buttons{
+.screen .form .box1 .box2.active .buttons{
     justify-content: flex-end;
     padding-right:15px;
     margin:20px 0;
 }
-.screen .form .box1 .box2 .buttons button{
+.screen .form .box1 .box2.active .buttons button{
     line-height:40px;
     text-align: center;
     padding:0 10px;
@@ -191,17 +191,17 @@
     border-radius:5px;
     cursor: pointer;
 }
-.screen .form .box1 .box2 .buttons button:nth-child(1){
+.screen .form .box1 .box2.active .buttons button:nth-child(1){
     background-color:rgb(0,0,0,0.1);
     color:rgb(0,0,0,0.5);
     margin-right:10px;
 }
-.screen .form .box1 .box2 .buttons button:nth-child(2){
+.screen .form .box1 .box2.active .buttons button:nth-child(2){
     background-color:var(--blue1);
     letter-spacing:2px;
     color: white;
 }
-.screen .form .box1 .box2 ul{
+.screen .form .box1 .box2.active ul{
     width:100%;
     padding:5px;
     margin:10px 0;
@@ -209,7 +209,7 @@
     display: flex;
     flex-wrap: wrap;
 }
-.screen .form .box1 .box2 ul li{
+.screen .form .box1 .box2.active ul li{
     margin:2px;
     padding:10px;
     display: inline;
@@ -218,7 +218,7 @@
     font-size:12px;
     border-radius:3px;
 }
-.screen .form .box1 .box2 h4 i{
+.screen .form .box1 .box2.active h4 i{
     position: absolute;
     top:50%;
     right:20px;
@@ -233,6 +233,7 @@
     color: white;
     border-radius: 50%;
 }
+
 
 @media (max-width:825px){
     .screen .form{
@@ -255,10 +256,10 @@
     .screen .dec{
         display: none;
     }
-    .screen .form .box1 .box2 .image{
+    .screen .form .box1 .box2.active .image{
         display: flex;
     }
-    .screen .form .box1 .box2 p{
+    .screen .form .box1 .box2.active p{
         margin-bottom:0px;
     }
 }

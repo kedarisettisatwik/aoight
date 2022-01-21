@@ -8,16 +8,35 @@ import Welcome from './Welcome.png';
 // import base from "../../firebase";
 // import { collection,getDocs, doc, getDoc } from 'firebase/firestore/lite';
 
-const Ele = () => {
-    // const location = useLocation();
-    // if (location.state){
-    //     return (<Draw/>);
-    // }else{
-    //     return (<Error/>);
-    // }
-}
+// const Ele = () => {
+//     const location = useLocation();
+//     if (location.state){
+//         return (<Draw/>);
+//     }else{
+//         return (<Error/>);
+//     }
+// }
 
 const Draw = () => {
+
+  return (
+    <>
+    <div className='dec flex'>
+      <img src={Welcome} alt='welcome'></img>
+    </div>
+    <div className='form flex'>
+      <div className='box1'> 
+           <Box2/>
+      </div>
+    </div>
+    </>
+  );
+
+}
+
+const Box2 = () => {
+
+  const [load,setLoad] = useState(true);
 
   const con_ref1 = React.createRef();
   const con_ref2 = React.createRef();
@@ -39,15 +58,10 @@ const Draw = () => {
   setClassi('input');
  }
 
+  if (load){
 
-  return (
-    <>
-    <div className='dec flex'>
-      <img src={Welcome} alt='welcome'></img>
-    </div>
-    <div className='form flex'>
-      <div className='box1'>
-        <div className='box2'>
+    return (
+      <div className='box2 active'>
             <p><strong>Hello,</strong> we are very Happy to see you here, 
                  <br></br> We have Just <strong> One </strong> more step 
                  <br></br> We have gathered some information about you,
@@ -68,7 +82,7 @@ const Draw = () => {
              <input type='text' contentEditable='false' value={details[2]}></input>
              <i className="fas fa-lock options"></i>
            </div>
-           <h4>What describes You the Best ? <i className="fas fa-plus"></i> </h4>
+           <h4>What describes You the Best ? <i className="fas fa-plus" onClick={() => setLoad(false)}></i> </h4>
              <ul>
                   <li>Student</li>
                   <li>Front-End Develpoer</li>
@@ -78,12 +92,17 @@ const Draw = () => {
              <button>continue</button>
            </div>
         </div>
-      </div>
-    </div>
-    </>
-  )
-}
+    );
 
+  }else{
+    return (
+      <div className='box2 search'>
+        <h3>Search for tags</h3>
+      </div>
+    );
+  }
+
+}
 
 function Board() {
 
