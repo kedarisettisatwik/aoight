@@ -68,6 +68,13 @@ const Draw = () => {
              <input type='text' contentEditable='false' value={details[2]}></input>
              <i className="fas fa-lock options"></i>
            </div>
+           <div className='tags'>
+             <span>Tags <i className="fas fa-tags"></i> </span>
+             <ul>
+                  <li>Student</li>
+                  <li>Front-End Develpoer</li>
+             </ul>
+           </div>
            <div className='buttons flex'>
              <button>cancel</button>
              <button>continue</button>

@@ -81,14 +81,22 @@
     margin:15px 0 25px 0;
 }
 .screen .form .box1 .box2 .pro_img img{
-    border:2px solid var(--blue1);
-    border-top:2px dashed var(--blue2);
     width:90px;
     height:90px;
     border-radius:50%;
-    background-color:white;
     outline: none;
     padding:5px;
+    position: relative;
+}
+.screen .form .box1 .box2 .pro_img::before{
+    content:'';
+    position: absolute;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    border:2px solid var(--blue1);
+    border-top:2px dashed var(--blue1);
+    transform:rotateZ(-30deg);
 }
 .screen .form .box1 .box2 .pro_img i{
     position:absolute;
@@ -167,6 +175,7 @@
 .screen .form .box1 .box2 .buttons{
     justify-content: flex-end;
     padding-right:15px;
+    margin:20px 0;
 }
 .screen .form .box1 .box2 .buttons button{
     line-height:40px;
