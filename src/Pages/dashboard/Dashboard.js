@@ -6,7 +6,13 @@ const Ele = () => {
   const location = useLocation();
   if (location.state){
     return (
-      <h2>Name : {location.state.Name}</h2>
+      <>
+       <section className='screen'>
+         <img src={location.state.photo} alt='profile_pic'></img>
+          <h3>Name : {location.state.Name}</h3>
+          <p>Email : {location.state.Email}</p>
+       </section>
+      </>
     );
   }else{
     return (<Error/>);

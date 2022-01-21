@@ -38,11 +38,7 @@ function Intro() {
         // console.log(user);
         // console.log(user_data);
         // sessionStorage.setItem("user", JSON.stringify(user_data));
-        setTimeout(function(){
-          // window.location.href = '/#/aoight-dashboard';
-          navigate('/aoight-dashboard',{state:user_data,replace:false});
-        },1000);
-
+        navigate('/aoight-dashboard',{state:user_data,replace:false});
       }).catch((error) => {
         console.log(error);
       });
