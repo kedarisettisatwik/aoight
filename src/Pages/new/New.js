@@ -1,23 +1,58 @@
-import React,{ useState ,useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React,{ useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Error from '../error/Error';
 import './new1.css';
 import '../color_plate.css';
 import Welcome from './Welcome.png';
 
-// import base from "../../firebase";
-// import { collection,getDocs, doc, getDoc } from 'firebase/firestore/lite';
+import base from "../../firebase";
+import { collection , getDocs , getDoc , doc , setDoc , deleteDoc } from 'firebase/firestore/lite';
 
-// const Ele = () => {
-//     const location = useLocation();
-//     if (location.state){
-//         return (<Draw/>);
-//     }else{
-//         return (<Error/>);
-//     }
-// }
+const Ele = () => {
+    const location = useLocation();
+    if (location.state){
+        return (<Draw/>);
+    }else{
+        return (<Error/>);
+    }
+}
 
 const Draw = () => {
+
+  const location = useLocation();
+
+  const list2 = [location.state.photo,location.state.Name,location.state.Email,"General"];
+
+  async function Fetchbefore(){
+    // console.log('add data after load');
+
+    await setDoc(doc(base, "mail search", location.state.uid), { 
+      mail : JSON.stringify([list2[2], location.state.uid])
+     }); 
+    
+     await setDoc(doc(base, "name search", location.state.uid), { 
+      name : JSON.stringify([list2[1], location.state.uid])
+     });
+
+     await setDoc(doc(base,"General",location.state.uid), { 
+      tag : JSON.stringify(location.state.uid)
+     });
+
+     var sending2 = {
+      "Photo":location.state.photo,
+      "Name":location.state.Name,
+      "Email":location.state.Email,
+      "Tag":"General",
+      "Uid":location.state.uid
+    }
+
+     await setDoc(doc(base, location.state.uid, "basic"), { 
+      basic : JSON.stringify(sending2)
+     }); 
+    
+  }
+
+  Fetchbefore();
 
   return (
     <>
@@ -35,12 +70,16 @@ const Draw = () => {
 }
 
 const Box2 = () => {
+  
+  const navigate = useNavigate();
+
+  const location = useLocation();
 
   const con_ref1 = React.createRef();
 
   const [classi,setClassi] = useState('input');
 
-  const list = ['https://lh3.googleusercontent.com/a-/AOh14GiS1xDkL47MBrHjTGcHtWrR-VkjdGAlO9Dt-mZPsw=s96-c-rg-br100','satwik kedar','satwik1330@gamil.com',"public"];
+  const list = [location.state.photo,location.state.Name,location.state.Email,"General"];
 
   const [details,setDetails] = useState(list);
 
@@ -60,7 +99,62 @@ const Cat1 = (e) => {
   setDetails([details[0],details[1],details[2],l]);
 }
 
-var list1 = ["Arts","Athelete","Author","Advertising",
+const [sending,setSend] = useState("load"); 
+
+var x = 0;
+
+async function Fetchdata(){
+
+  setSend("load active");
+
+  var sending1 = {
+    "Photo":details[0],
+    "Name":details[1],
+    "Email":details[2],
+    "Tag":details[3],
+    "Uid":location.state.uid
+  }
+
+  function Navi(){
+    if (x === 8){
+      navigate('/aoight-dashboard',{state:location.state,replace:true});
+    }
+    console.log(x);
+  }
+
+  await deleteDoc(doc(base, location.state.uid, "basic"))
+  .then((result) => {console.log("basic del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+
+  await deleteDoc(doc(base, "mail search", location.state.uid))
+  .then((result) => {console.log("mail del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+
+  await deleteDoc(doc(base, "name search", location.state.uid))
+  .then((result) => {console.log("name del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+
+  await deleteDoc(doc(base, "General", location.state.uid))
+  .then((result) => {console.log("tag del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+    
+  await setDoc(doc(base, "mail search", location.state.uid), { 
+    mail : JSON.stringify([details[2], location.state.uid])
+   }).then((result) => {console.log("mail send");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+  
+   await setDoc(doc(base, "name search", location.state.uid), { 
+    name : JSON.stringify([details[1], location.state.uid])
+   }).then((result) => {console.log("name send");x += 1;Navi()}).catch((error) => {console.log(error)});
+
+   await setDoc(doc(base,details[3],location.state.uid), { 
+    tag : JSON.stringify(location.state.uid)
+   }).then((result) => {console.log("tag ok");x += 1;Navi()}).catch((error) => {console.log(error)});
+
+   await setDoc(doc(base, location.state.uid, "basic"), { 
+    basic : JSON.stringify(sending1)
+   }).then((result) => {console.log("basic ok");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+
+}
+
+
+
+var list1 = ["General","Arts","Athelete","Author","Advertising",
              "Bussiness","Book","Beauty","Bar",
              "College","community","cloths","cooking","contractor","camera","commercial",
              "Design & Fashion","DJ","Dancer","Digital creator","Doctor","Driving","Developer",
@@ -75,7 +169,7 @@ var list1 = ["Arts","Athelete","Author","Advertising",
              "Music","movie","marketing","medical","media","magazine",
              "news","NGO","nursing",
              "office",
-             "photographer","politician","pharmacy","pizza","public","professor",
+             "photographer","politician","pharmacy","pizza","professor",
              "Real Estate","resturant","radio","retial",
              "school","song","shopping","sports","social","solider","security","software",
              "travel","tv","train","tax",
@@ -115,9 +209,10 @@ return (
              </select>
              <i className="fas fa-pen options"></i>
            </div>
+           <h2 className={sending}>Loading</h2>
            <div className='buttons flex'>
              <button onClick={() => setDetails(list)}>cancel</button>
-             <button onClick={() => {console.log(details);alert("done");}}>continue</button>
+             <button onClick={Fetchdata}>continue</button>
            </div>
         </div>
   );
@@ -129,8 +224,7 @@ function Board() {
   return(
     <>
     <div className='flex screen'>
-          {/* <Ele/> */}
-          <Draw/>
+          <Ele/>
     </div>
     </>
   );
