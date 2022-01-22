@@ -30,19 +30,19 @@ const Draw = () => {
 
     mail_obj[key1] = location.state.Email;
 
-    await setDoc(doc(base, "search","1mail"),mail_obj); 
+    await setDoc(doc(base, "search","1mail"),mail_obj,{merge:true}); 
 
     var name_obj = {};
 
     name_obj[key1] = location.state.Name;
 
-    await setDoc(doc(base, "search","2name"),name_obj);
+    await setDoc(doc(base, "search","2name"),name_obj,{merge:true});
 
     var tag_obj = {};
 
     tag_obj[key1] = location.state.uid;
 
-    await setDoc(doc(base,"search","General"),tag_obj);
+    await setDoc(doc(base,"search","General"),tag_obj,{merge:true});
 
     var sending2 = {
       "Photo":location.state.photo,
@@ -52,7 +52,7 @@ const Draw = () => {
       "Uid":location.state.uid
     }
 
-    await setDoc(doc(base,"users",location.state.uid,"profile","visible"),sending2); 
+    await setDoc(doc(base,"users",location.state.uid,"profile","visible"),sending2,{merge:true}); 
     
 
   }
@@ -148,7 +148,7 @@ async function Fetchdata(){
     "Uid":location.state.uid
   }
 
-  await setDoc(doc(base,"users",location.state.uid,"profile","visible"),sending1)
+  await setDoc(doc(base,"users",location.state.uid,"profile","visible"),sending1,{merge:true})
   .then((result) => {console.log("basic add");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
   var key1 = location.state.uid;
@@ -157,21 +157,21 @@ async function Fetchdata(){
 
   mail_obj[key1] = sending1.Email;
 
-  await setDoc(doc(base, "search","1mail"),mail_obj)
+  await setDoc(doc(base, "search","1mail"),mail_obj,{merge:true})
   .then((result) => {console.log("email add");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
   var name_obj = {};
 
   name_obj[key1] = sending1.Name;
 
-  await setDoc(doc(base, "search","2name"),name_obj)
+  await setDoc(doc(base, "search","2name"),name_obj,{merge:true})
   .then((result) => {console.log("name add");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
   var tag_obj = {};
 
   tag_obj[key1] = sending1.Uid;
 
-  await setDoc(doc(base,"search",sending1.Tag),tag_obj)
+  await setDoc(doc(base,"search",sending1.Tag),tag_obj,{merge:true})
   .then((result) => {console.log("tag add");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
 }
