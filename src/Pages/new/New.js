@@ -6,7 +6,7 @@ import '../color_plate.css';
 import Welcome from './Welcome.png';
 
 import base from "../../firebase";
-import { collection , getDocs , getDoc , doc , setDoc , deleteDoc } from 'firebase/firestore/lite';
+import { doc , setDoc , deleteDoc , deleteField , updateDoc } from 'firebase/firestore/lite';
 
 const Ele = () => {
     const location = useLocation();
@@ -21,24 +21,30 @@ const Draw = () => {
 
   const location = useLocation();
 
-  const list2 = [location.state.photo,location.state.Name,location.state.Email,"General"];
-
   async function Fetchbefore(){
     // console.log('add data after load');
 
-    await setDoc(doc(base, "mail search", location.state.uid), { 
-      mail : JSON.stringify([list2[2], location.state.uid])
-     }); 
-    
-     await setDoc(doc(base, "name search", location.state.uid), { 
-      name : JSON.stringify([list2[1], location.state.uid])
-     });
+    var key1 = location.state.uid;
 
-     await setDoc(doc(base,"General",location.state.uid), { 
-      tag : JSON.stringify(location.state.uid)
-     });
+    var mail_obj = {};
 
-     var sending2 = {
+    mail_obj[key1] = location.state.Email;
+
+    await setDoc(doc(base, "search","1mail"),mail_obj); 
+
+    var name_obj = {};
+
+    name_obj[key1] = location.state.Name;
+
+    await setDoc(doc(base, "search","2name"),name_obj);
+
+    var tag_obj = {};
+
+    tag_obj[key1] = location.state.uid;
+
+    await setDoc(doc(base,"search","General"),tag_obj);
+
+    var sending2 = {
       "Photo":location.state.photo,
       "Name":location.state.Name,
       "Email":location.state.Email,
@@ -46,10 +52,9 @@ const Draw = () => {
       "Uid":location.state.uid
     }
 
-     await setDoc(doc(base, location.state.uid, "basic"), { 
-      basic : JSON.stringify(sending2)
-     }); 
+    await setDoc(doc(base,"users",location.state.uid,"profile","visible"),sending2); 
     
+
   }
 
   Fetchbefore();
@@ -107,6 +112,34 @@ async function Fetchdata(){
 
   setSend("load active");
 
+  function Navi(){
+    if (x === 8){
+      navigate('/aoight-dashboard',{state:location.state,replace:true});
+    }
+    // console.log(x);
+  }
+
+  await deleteDoc(doc(base,"users",location.state.uid,"profile","visible"))
+  .then((result) => {console.log("basic del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+
+  const mail_del1 = doc(base, "search","1mail");
+  const del_mail1 = {}
+  del_mail1[location.state.uid] = deleteField();
+  await updateDoc(mail_del1,del_mail1)
+  .then((result) => {console.log("mail del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+
+  const name_del1 = doc(base, "search","2name");
+  const del_name1 = {}
+  del_name1[location.state.uid] = deleteField();
+  await updateDoc(name_del1,del_name1)
+  .then((result) => {console.log("name del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+
+  const tag_del1 = doc(base, "search","General");
+  const del_tag1 = {}
+  del_tag1[location.state.uid] = deleteField();
+  await updateDoc(tag_del1,del_tag1)
+  .then((result) => {console.log("tag del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+  
   var sending1 = {
     "Photo":details[0],
     "Name":details[1],
@@ -115,40 +148,31 @@ async function Fetchdata(){
     "Uid":location.state.uid
   }
 
-  function Navi(){
-    if (x === 8){
-      navigate('/aoight-dashboard',{state:location.state,replace:true});
-    }
-    // console.log(x);
-  }
+  await setDoc(doc(base,"users",location.state.uid,"profile","visible"),sending1)
+  .then((result) => {console.log("basic add");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
-  await deleteDoc(doc(base, location.state.uid, "basic"))
-  .then((result) => {console.log("basic del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+  var key1 = location.state.uid;
 
-  await deleteDoc(doc(base, "mail search", location.state.uid))
-  .then((result) => {console.log("mail del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+  var mail_obj = {};
 
-  await deleteDoc(doc(base, "name search", location.state.uid))
-  .then((result) => {console.log("name del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+  mail_obj[key1] = sending1.Email;
 
-  await deleteDoc(doc(base, "General", location.state.uid))
-  .then((result) => {console.log("tag del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
-    
-  await setDoc(doc(base, "mail search", location.state.uid), { 
-    mail : JSON.stringify([details[2], location.state.uid])
-   }).then((result) => {console.log("mail send");x += 1;Navi()}).catch((error) => {console.log(error)}); 
-  
-   await setDoc(doc(base, "name search", location.state.uid), { 
-    name : JSON.stringify([details[1], location.state.uid])
-   }).then((result) => {console.log("name send");x += 1;Navi()}).catch((error) => {console.log(error)});
+  await setDoc(doc(base, "search","1mail"),mail_obj)
+  .then((result) => {console.log("email add");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
-   await setDoc(doc(base,details[3],location.state.uid), { 
-    tag : JSON.stringify(location.state.uid)
-   }).then((result) => {console.log("tag ok");x += 1;Navi()}).catch((error) => {console.log(error)});
+  var name_obj = {};
 
-   await setDoc(doc(base, location.state.uid, "basic"), { 
-    basic : JSON.stringify(sending1)
-   }).then((result) => {console.log("basic ok");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+  name_obj[key1] = sending1.Name;
+
+  await setDoc(doc(base, "search","2name"),name_obj)
+  .then((result) => {console.log("name add");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+
+  var tag_obj = {};
+
+  tag_obj[key1] = sending1.Uid;
+
+  await setDoc(doc(base,"search",sending1.Tag),tag_obj)
+  .then((result) => {console.log("tag add");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
 }
 

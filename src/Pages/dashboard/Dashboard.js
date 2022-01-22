@@ -1,4 +1,4 @@
-import React,{ useState ,useEffect} from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Error from '../error/Error';
 import './dash.css';
@@ -15,6 +15,7 @@ const Ele = () => {
   }else{
     return (<Error/>);
   }
+
 }
 
 
@@ -23,7 +24,7 @@ function Board() {
 
   return(
     <>
-    <div className='flex screen'>
+    <div className='flex dash'>
           <Ele/>
     </div>
     </>
