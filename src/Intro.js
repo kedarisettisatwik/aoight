@@ -42,7 +42,7 @@ function Intro() {
 
         const diff = Math.abs(user.metadata.lastLoginAt - user.metadata.createdAt);
 
-        if (diff < 100 ){
+        if (diff < 50 ){
           navigate('/aoight-new',{state:user_data,replace:false});
         }else{
           navigate('/aoight-dashboard',{state:user_data,replace:false});
