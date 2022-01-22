@@ -119,7 +119,7 @@ async function Fetchdata(){
     if (x === 8){
       navigate('/aoight-dashboard',{state:location.state,replace:true});
     }
-    console.log(x);
+    // console.log(x);
   }
 
   await deleteDoc(doc(base, location.state.uid, "basic"))
