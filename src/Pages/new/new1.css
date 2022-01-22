@@ -201,39 +201,15 @@
     letter-spacing:2px;
     color: white;
 }
-.screen .form .box1 .box2.active ul{
-    width:100%;
-    padding:5px;
-    margin:10px 0;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
+.screen .form .box1 .box2.active .input select{
+    height: 50px;
+    outline: none;
+    border: none;
+    background: none;
+    width: calc(100% - 25px);
+    padding-left: 5px;
+    font-size: 15px;
 }
-.screen .form .box1 .box2.active ul li{
-    margin:2px;
-    padding:10px;
-    display: inline;
-    background-color:rgb(0,0,0,0.1);
-    letter-spacing:1px;
-    font-size:12px;
-    border-radius:3px;
-}
-.screen .form .box1 .box2.active h4 i{
-    position: absolute;
-    top:50%;
-    right:20px;
-    height:30px;
-    width:30px;
-    line-height:30px;
-    cursor: pointer;
-    text-align: center;
-    font-size:16px;
-    transform: translateY(-50%);
-    background-color:var(--blue1);
-    color: white;
-    border-radius: 50%;
-}
-
 
 @media (max-width:825px){
     .screen .form{

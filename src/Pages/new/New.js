@@ -1,6 +1,7 @@
 import React,{ useState ,useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Error from '../error/Error';
+import { CountryDropdown } from 'react-country-region-selector';
 import './new1.css';
 import '../color_plate.css';
 import Welcome from './Welcome.png';
@@ -36,31 +37,34 @@ const Draw = () => {
 
 const Box2 = () => {
 
-  const [load,setLoad] = useState(true);
-
   const con_ref1 = React.createRef();
-  const con_ref2 = React.createRef();
 
   const [classi,setClassi] = useState('input');
 
-  const list = ['https://lh3.googleusercontent.com/a-/AOh14GiS1xDkL47MBrHjTGcHtWrR-VkjdGAlO9Dt-mZPsw=s96-c-rg-br100','satwik kedar','satwik1330@gamil.com'];
+  const list = ['https://lh3.googleusercontent.com/a-/AOh14GiS1xDkL47MBrHjTGcHtWrR-VkjdGAlO9Dt-mZPsw=s96-c-rg-br100','satwik kedar','satwik1330@gamil.com',"India"];
 
   const [details,setDetails] = useState(list);
 
   const Change1 = (e) => {
-    setDetails([details[0],e.target.value,details[2]]);
+    setDetails([details[0],e.target.value,details[2],details[3]]);
  }
 
  const Blur1 = (e) => {
   if (e.target.value.length === 0){
-    setDetails([details[0],list[1],details[2]]);
+    setDetails([details[0],list[1],details[2],details[3]]);
   }
   setClassi('input');
- }
+}
 
-  if (load){
+const Country1 = (val) => {
+  if (val === ''){
+    setDetails([details[0],details[1],details[2],list[3]]);
+  }else{
+    setDetails([details[0],details[1],details[2],val]);
+  }
+}
 
-    return (
+return (
       <div className='box2 active'>
             <p><strong>Hello,</strong> we are very Happy to see you here, 
                  <br></br> We have Just <strong> One </strong> more step 
@@ -74,7 +78,7 @@ const Box2 = () => {
            </div>
            <div className={classi} ref={con_ref1}>
              <label>User Name </label>
-             <input type='text' value={details[1]} placeholder={list[1]} onFocus={() => setClassi('input active')} onBlur={Blur1} onChange={Change1} ref={con_ref2}></input>
+             <input type='text' value={details[1]} placeholder={list[1]} onFocus={() => setClassi('input active')} onBlur={Blur1} onChange={Change1}></input>
              <i className="fas fa-pen options"></i>
            </div>
            <div className='input lock'>
@@ -82,25 +86,17 @@ const Box2 = () => {
              <input type='text' contentEditable='false' value={details[2]}></input>
              <i className="fas fa-lock options"></i>
            </div>
-           <h4>What describes You the Best ? <i className="fas fa-plus" onClick={() => setLoad(false)}></i> </h4>
-             <ul>
-                  <li>Student</li>
-                  <li>Front-End Develpoer</li>
-             </ul>
+           <div className='input'>
+             <label> Country </label>
+             <CountryDropdown value={details[3]} onChange={(val) => {Country1(val)}}/>
+             <i className="fas fa-pen options"></i>
+           </div>
            <div className='buttons flex'>
              <button>cancel</button>
-             <button>continue</button>
+             <button onClick={() => {console.log(details);alert("done");}}>continue</button>
            </div>
         </div>
-    );
-
-  }else{
-    return (
-      <div className='box2 search'>
-        <h3>Search for tags</h3>
-      </div>
-    );
-  }
+  );
 
 }
 
