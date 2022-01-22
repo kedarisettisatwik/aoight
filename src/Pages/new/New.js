@@ -130,7 +130,7 @@ return (
              <i className="fas fa-pen options"></i>
            </div>
            <div className='buttons flex'>
-             <button>cancel</button>
+             <button onClick={() => setDetails(list)}>cancel</button>
              <button onClick={() => {console.log(details);alert("done");}}>continue</button>
            </div>
         </div>
