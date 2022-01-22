@@ -118,7 +118,7 @@
 .screen .form .box1 .box2.active .input{
     width:calc(100% - 15px);
     position: relative;
-    margin:25px 0;
+    margin:20px 0;
     padding:0 10px;
     border-radius:3px;
     border:2px solid rgb(0,0,0,0.1);
