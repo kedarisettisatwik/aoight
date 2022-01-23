@@ -279,7 +279,7 @@ return (
        </div>
        <h2 className={sending}>Loading</h2>
        <div className='buttons flex'>
-         <button onClick={() => setDetails(list)}>cancel</button>
+         <button onClick={() => {setDetails(list);setImg_s({"--img": "url("+location.state.photo+")","backgroundSize":"cover","backgroundPosition":"center"})}}>cancel</button>
          <button onClick={Fetchdata}>continue</button>
        </div>
   </div>
