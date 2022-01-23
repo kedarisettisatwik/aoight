@@ -5,6 +5,8 @@ import './new1.css';
 import '../color_plate.css';
 import Welcome from './Welcome.png';
 
+import Resizer from 'react-image-file-resizer';
+
 import base from "../../firebase";
 import { doc , setDoc , deleteDoc , deleteField , updateDoc } from 'firebase/firestore/lite';
 
@@ -82,6 +84,10 @@ const Box2 = () => {
 
   const con_ref1 = React.createRef();
 
+  const file_ref = React.createRef();
+
+  const my_img = React.createRef();
+
   const [classi,setClassi] = useState('input');
 
   const list = [location.state.photo,location.state.Name,location.state.Email,"General"];
@@ -104,6 +110,34 @@ const Cat1 = (e) => {
   setDetails([details[0],details[1],details[2],l]);
 }
 
+const Image_up = (e) => {
+  // var im = e.target.value;
+  // console.log(im);
+  const fi = file_ref.current.files[0];
+  // if (fi){
+  //   const reader = new FileReader();
+  //   reader.onload = function(){
+  //       const result = reader.result;
+  //   }
+  //   reader.readAsDataURL(fi);
+  // }
+
+  Resizer.imageFileResizer(
+    fi,
+    300,
+    300,
+    'PNG',
+    80,
+    0,
+    uri => {
+        // console.log(uri)
+        setDetails([uri,details[1],details[2],details[3]]);
+    },
+    'base64'
+);
+
+}
+
 const [sending,setSend] = useState("load"); 
 
 var x = 0;
@@ -118,6 +152,8 @@ async function Fetchdata(){
     }
     // console.log(x);
   }
+
+  setDetails([my_img.current.src,details[1],details[2],details[3]]);
 
   // await deleteDoc(doc(base,"users",location.state.uid,"profile","visible"))
   // .then((result) => {console.log("basic del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
@@ -210,9 +246,11 @@ return (
                  <br></br> Please Fill remaining details and continue.</p>
            <div className='image flex'><img src={Welcome} alt='welcome'></img></div>
            <h4>Choose your Profile Pic : </h4>
+           <h6 style={{"margin":"5px 0","opacity":"0.5","letterSpacing":"1px"}}> Suggestion : Try to select a square shaped Image <br></br> 1:1 ratio image </h6>
            <div className='pro_img flex'>
-             <img src={details[0]} alt='pro'></img>
-             <i className="fas fa-camera"></i>
+             <img ref={my_img} src={details[0]} alt='pro'></img>
+             <i className="fas fa-camera" onClick={() => file_ref.current.click()}></i>
+             <input type='file' multiple={false} ref={file_ref} hidden accept="image/*" onChange={(e) => {Image_up(e)}}></input>
            </div>
            <div className={classi} ref={con_ref1}>
              <label>User Name </label>
