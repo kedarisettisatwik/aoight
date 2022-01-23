@@ -44,7 +44,7 @@ function Intro() {
 
         // console.log(user);
         
-        if (diff < 1000 ){
+        if (diff < 50 ){
           navigate('/aoight-new',{state:user_data,replace:true});
         }else{
           navigate('/aoight-dashboard',{state:user_data,replace:true});
