@@ -119,8 +119,8 @@ const Image_up = (e) => {
 
   Resizer.imageFileResizer(
     fi,
-    300,
-    300,
+    600,
+    600,
     'PNG',
     80,
     0,

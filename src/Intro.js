@@ -50,6 +50,8 @@ function Intro() {
           navigate('/aoight-dashboard',{state:user_data,replace:true});
         }
 
+        // navigate('/aoight-new',{state:user_data,replace:false});
+
       }).catch((error) => {
         console.log(error);
       });

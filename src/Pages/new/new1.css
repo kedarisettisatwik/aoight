@@ -68,6 +68,7 @@
 }
 .screen .form .box1 .box2.active .image img{
     width:250px;
+    display: none;
 }
 .screen .form .box1 .box2.active h4{
     letter-spacing: 1px;
@@ -207,7 +208,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: var(--img);
-    background-position: center;
+    background-position: top;
     padding:5px;
     border-radius:50%;
 }
@@ -245,7 +246,7 @@
     .screen .dec{
         display: none;
     }
-    .screen .form .box1 .box2.active .image{
+    .screen .form .box1 .box2.active .image img{
         display: flex;
     }
     .screen .form .box1 .box2.active p{
