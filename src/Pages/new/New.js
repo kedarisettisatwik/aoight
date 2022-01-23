@@ -119,10 +119,10 @@ const Image_up = (e) => {
 
   Resizer.imageFileResizer(
     fi,
-    600,
-    600,
+    500,
+    500,
     'PNG',
-    80,
+    90,
     0,
     uri => {
         setDetails([uri,details[1],details[2],details[3]]);
@@ -230,7 +230,7 @@ var list1 = ["General","Arts","Athelete","Author","Advertising",
              "school","song","shopping","sports","social","solider","security","software",
              "travel","tv","train","tax",
              "urban","uniform",
-             "website desinger","water","wine",
+             "website desinger","water","Women",
              "Xerox",
              "Yoga",
              "zoo"];
@@ -254,7 +254,10 @@ return (
        <h4>Choose your Profile Pic : </h4>
        <h6 style={{"margin":"5px 0","opacity":"0.5","letterSpacing":"1px"}}> Suggestion : Try to select a square shaped Image <br></br> 1:1 ratio image </h6>
        <div className='pro_img flex'>
-         <div ref={my_img} className='image_box' style={img_s}></div>
+         <div ref={my_img} className='image_box' style={img_s}>
+           <div className='cover'></div>
+           <div className='contain'></div>
+         </div>
          <i className="fas fa-camera" onClick={() => file_ref.current.click()}></i>
          <input type='file' multiple={false} ref={file_ref} hidden accept="image/*" onChange={(e) => {Image_up(e)}}></input>
        </div>
