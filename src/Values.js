@@ -27,6 +27,15 @@ import { useState ,useEffect } from 'react';
 
 // getvalues();
 
+function shorted(num) {
+  const suff = [""," K "," M "," B "," T "];
+  var sn = Math.floor((""+num).length / 3);
+  var shortv = (sn !== 0 ? (num / Math.pow(1000,sn)) : num );
+  if (shortv % 1 !== 0){
+    shortv = shortv.toFixed(1);
+  }
+  return (shortv + suff[sn]);
+}
 
 function Values(){
 
@@ -40,21 +49,11 @@ function Values(){
      if (docSnap.exists()) {
             const list = [];
             // console.log("Document data:", docSnap.data());
-            var re1 = parseFloat(docSnap.data().reviews);
-            if (re1 > 1000){
-              re1 = re1 / 1000;
-              re1.toFixed(1);
-              re1 += " K +";
-            }
+            var re1 = shorted(parseInt(docSnap.data().reviews));
             list.push(re1);
             var re2 = parseFloat(docSnap.data().rating);
             list.push(re2);
-            var re3 = parseFloat(docSnap.data().users);
-            if (re3 > 1000){
-              re3 = re3 / 1000;
-              re3.toFixed(1);
-              re3 += " K +";
-            }
+            var re3 = shorted(parseInt(docSnap.data().users));
             list.push(re3);
             setItems(list);
             setLoading(false);
