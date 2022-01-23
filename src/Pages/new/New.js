@@ -59,7 +59,7 @@ const Draw = () => {
 
   }
 
-  // Fetchbefore();
+  Fetchbefore();
 
   return (
     <>
@@ -86,6 +86,8 @@ const Box2 = () => {
   const list = [location.state.photo,location.state.Name,location.state.Email,"General"];
 
   const [details,setDetails] = useState(list);
+
+  const [img_s,setImg_s] = useState({"--img": "url("+details[0]+")","backgroundSize":"cover","backgroundPosition":"center"});
 
   const Change1 = (e) => {
     setDetails([details[0],e.target.value,details[2],details[3]]);
@@ -123,8 +125,9 @@ const Image_up = (e) => {
     80,
     0,
     uri => {
-        // console.log(uri)
         setDetails([uri,details[1],details[2],details[3]]);
+        setImg_s({"--img": "url("+uri+")","backgroundSize":"cover","backgroundPosition":"center"})
+        // console.log(uri);
     },
     'base64'
 );
@@ -146,7 +149,7 @@ async function Fetchdata(){
     // console.log(x);
   }
 
-  setDetails([my_img.current.src,details[1],details[2],details[3]]);
+  setDetails([details[0],details[1],details[2],details[3]]);
 
   // await deleteDoc(doc(base,"users",location.state.uid,"profile","visible"))
   // .then((result) => {console.log("basic del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
@@ -231,79 +234,62 @@ var list1 = ["General","Arts","Athelete","Author","Advertising",
              "Xerox",
              "Yoga",
              "zoo"];
-const [croppage,setCroppage] = useState(false);
-if (croppage){
+          
+return (
 
-  return (
-    <div className='box2 crop'>
-      <h2> Crop page </h2>
+  <>
+  
+  <div className='dec flex'>
+    <img src={Welcome} alt='welcome'></img>
+  </div>
+  <div className='form flex'>
+    <div className='box1'>
+
+    <div className='box2 active'>
+        <p><strong>Hello,</strong> we are very Happy to see you here, 
+             <br></br> We have Just <strong> One </strong> more step 
+             <br></br> We have gathered some information about you,
+             <br></br> Please Fill remaining details and continue.</p>
+       <div className='image flex'><img src={Welcome} alt='welcome'></img></div>
+       <h4>Choose your Profile Pic : </h4>
+       <h6 style={{"margin":"5px 0","opacity":"0.5","letterSpacing":"1px"}}> Suggestion : Try to select a square shaped Image <br></br> 1:1 ratio image </h6>
+       <div className='pro_img flex'>
+         <div ref={my_img} className='image_box' style={img_s}></div>
+         <i className="fas fa-camera" onClick={() => file_ref.current.click()}></i>
+         <input type='file' multiple={false} ref={file_ref} hidden accept="image/*" onChange={(e) => {Image_up(e)}}></input>
+       </div>
+       <div className={classi} ref={con_ref1}>
+         <label>User Name </label>
+         <input type='text' value={details[1]} placeholder={list[1]} onFocus={() => setClassi('input active')} onBlur={Blur1} onChange={Change1}></input>
+         <i className="fas fa-pen options"></i>
+       </div>
+       <div className='input lock'>
+         <label>Email </label>
+         <input type='text' value={details[2]} readOnly></input>
+         <i className="fas fa-lock options"></i>
+       </div>
+       <h4> What describes you the best ? </h4>
+       <div className='input' style={{"margin":"10px 0"}}>
+         <select value={details[3]} onChange={(e) => {Cat1(e)} }>
+            {
+              list1.map(item => <option value={item}>{item}</option>)
+            }
+         </select>
+         <i className="fas fa-pen options"></i>
+       </div>
+       <h2 className={sending}>Loading</h2>
+       <div className='buttons flex'>
+         <button onClick={() => setDetails(list)}>cancel</button>
+         <button onClick={Fetchdata}>continue</button>
+       </div>
+  </div>
+
     </div>
-  );
+  </div>
 
-}else{
+  </>
 
-  var img_s = {"--img": "url("+details[0]+")"};
-
-  return (
-
-    <>
-    
-    <div className='dec flex'>
-      <img src={Welcome} alt='welcome'></img>
-    </div>
-    <div className='form flex'>
-      <div className='box1'>
-
-      <div className='box2 active'>
-          <p><strong>Hello,</strong> we are very Happy to see you here, 
-               <br></br> We have Just <strong> One </strong> more step 
-               <br></br> We have gathered some information about you,
-               <br></br> Please Fill remaining details and continue.</p>
-         <div className='image flex'><img src={Welcome} alt='welcome'></img></div>
-         <h4>Choose your Profile Pic : </h4>
-         <h6 style={{"margin":"5px 0","opacity":"0.5","letterSpacing":"1px"}}> Suggestion : Try to select a square shaped Image <br></br> 1:1 ratio image </h6>
-         <div style={{"display":"flex","position":"relative","justifyContent":"flex-end"}}>
-         <label className='crop1' onClick={() => setCroppage(true)}> Crop Image </label>
-         </div>
-         <div className='pro_img flex'>
-           <div ref={my_img} className='image_box' style={img_s}></div>
-           <i className="fas fa-camera" onClick={() => file_ref.current.click()}></i>
-           <input type='file' multiple={false} ref={file_ref} hidden accept="image/*" onChange={(e) => {Image_up(e)}}></input>
-         </div>
-         <div className={classi} ref={con_ref1}>
-           <label>User Name </label>
-           <input type='text' value={details[1]} placeholder={list[1]} onFocus={() => setClassi('input active')} onBlur={Blur1} onChange={Change1}></input>
-           <i className="fas fa-pen options"></i>
-         </div>
-         <div className='input lock'>
-           <label>Email </label>
-           <input type='text' value={details[2]} readOnly></input>
-           <i className="fas fa-lock options"></i>
-         </div>
-         <h4> What describes you the best ? </h4>
-         <div className='input' style={{"margin":"10px 0"}}>
-           <select value={details[3]} onChange={(e) => {Cat1(e)} }>
-              {
-                list1.map(item => <option value={item}>{item}</option>)
-              }
-           </select>
-           <i className="fas fa-pen options"></i>
-         </div>
-         <h2 className={sending}>Loading</h2>
-         <div className='buttons flex'>
-           <button onClick={() => setDetails(list)}>cancel</button>
-           <button onClick={Fetchdata}>continue</button>
-         </div>
-    </div>
-
-      </div>
-    </div>
-
-    </>
-
-  );
-
-}
+);
 
 }
 
