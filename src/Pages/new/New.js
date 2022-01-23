@@ -113,26 +113,26 @@ async function Fetchdata(){
   setSend("load active");
 
   function Navi(){
-    if (x === 8){
+    if (x === 5){
       navigate('/aoight-dashboard',{state:location.state,replace:true});
     }
     // console.log(x);
   }
 
-  await deleteDoc(doc(base,"users",location.state.uid,"profile","visible"))
-  .then((result) => {console.log("basic del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+  // await deleteDoc(doc(base,"users",location.state.uid,"profile","visible"))
+  // .then((result) => {console.log("basic del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
-  const mail_del1 = doc(base, "search","1mail");
-  const del_mail1 = {}
-  del_mail1[location.state.uid] = deleteField();
-  await updateDoc(mail_del1,del_mail1)
-  .then((result) => {console.log("mail del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+  // const mail_del1 = doc(base, "search","1mail");
+  // const del_mail1 = {}
+  // del_mail1[location.state.uid] = deleteField();
+  // await updateDoc(mail_del1,del_mail1)
+  // .then((result) => {console.log("mail del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
-  const name_del1 = doc(base, "search","2name");
-  const del_name1 = {}
-  del_name1[location.state.uid] = deleteField();
-  await updateDoc(name_del1,del_name1)
-  .then((result) => {console.log("name del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
+  // const name_del1 = doc(base, "search","2name");
+  // const del_name1 = {}
+  // del_name1[location.state.uid] = deleteField();
+  // await updateDoc(name_del1,del_name1)
+  // .then((result) => {console.log("name del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
   const tag_del1 = doc(base, "search","General");
   const del_tag1 = {}
@@ -221,7 +221,7 @@ return (
            </div>
            <div className='input lock'>
              <label>Email </label>
-             <input type='text' contentEditable='false' value={details[2]}></input>
+             <input type='text' value={details[2]} readOnly></input>
              <i className="fas fa-lock options"></i>
            </div>
            <h4> What describes you the best ? </h4>
