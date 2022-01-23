@@ -59,7 +59,7 @@ const Draw = () => {
 
   }
 
-  Fetchbefore();
+ Fetchbefore();
 
   return (
     <>

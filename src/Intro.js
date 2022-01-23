@@ -40,11 +40,9 @@ function Intro() {
         // console.log(user_data);
         // sessionStorage.setItem("user", JSON.stringify(user_data));
 
-        const diff = Math.abs(user.metadata.lastLoginAt - user.metadata.createdAt);
-
         // console.log(user);
         
-        if (diff < 50 ){
+        if (user.metadata.creationTime === user.metadata.lastSignInTime){
           navigate('/aoight-new',{state:user_data,replace:true});
         }else{
           navigate('/aoight-dashboard',{state:user_data,replace:true});
