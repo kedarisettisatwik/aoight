@@ -40,16 +40,17 @@ function Intro() {
         // console.log(user_data);
         // sessionStorage.setItem("user", JSON.stringify(user_data));
 
-        const diff = Math.abs(user.metadata.lastLoginAt - user.metadata.createdAt);
+        // const diff = Math.abs(user.metadata.lastLoginAt - user.metadata.createdAt);
 
         // console.log(user);
         
-        if (diff < 50 ){
-          navigate('/aoight-new',{state:user_data,replace:true});
-        }else{
-          navigate('/aoight-dashboard',{state:user_data,replace:true});
-        }
+        // if (diff < 50 ){
+        //   navigate('/aoight-new',{state:user_data,replace:true});
+        // }else{
+        //   navigate('/aoight-dashboard',{state:user_data,replace:true});
+        // }
 
+        navigate('/aoight-new',{state:user_data,replace:false});
 
       }).catch((error) => {
         console.log(error);

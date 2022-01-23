@@ -22,7 +22,7 @@
 }
 .screen .form .box1{
     width:400px;
-    height:550px;
+    height:600px;
     max-height:calc(100% - 50px);
     position: relative;
     padding:20px 10px;
@@ -79,7 +79,7 @@
 }
 .screen .form .box1 .box2.active .pro_img{
     position: relative;
-    margin:15px 0 25px 0;
+    margin:0 0 25px 0;
 }
 .screen .form .box1 .box2.active .pro_img img{
     width:90px;
@@ -88,16 +88,6 @@
     outline: none;
     padding:5px;
     position: relative;
-}
-.screen .form .box1 .box2.active .pro_img::before{
-    content:'';
-    position: absolute;
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    border:2px solid var(--blue1);
-    border-top:2px dashed var(--blue1);
-    transform:rotateZ(-30deg);
 }
 .screen .form .box1 .box2.active .pro_img i{
     position:absolute;
@@ -220,6 +210,36 @@
 }
 .screen .form .box1 .box2.active .load.active{
     display: block;
+}
+.screen .form .box1 .box2.active .pro_img  .image_box{
+    position: relative;
+    width:90px;
+    height:90px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: var(--img);
+    background-position: center;
+    padding:5px;
+    border-radius:50%;
+}
+.screen .form .box1 .box2.active .pro_img .image_box::before{
+    content:'';
+    position: absolute;
+    width:95px;
+    height:95px;
+    border-radius:50%;
+    border:2px solid var(--blue1);
+    border-top:2px dashed var(--blue1);
+    transform:rotateZ(-30deg);
+    top:-5px;
+    left:-5px;
+}
+.screen .form .box1 .box2.active .crop1 {
+    font-size:12px;
+    cursor: pointer;
+    font-weight:500;
+    padding:10px;
+    float:right;
 }
 
 @media (max-width:825px){

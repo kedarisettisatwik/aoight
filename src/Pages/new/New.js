@@ -59,18 +59,11 @@ const Draw = () => {
 
   }
 
-  Fetchbefore();
+  // Fetchbefore();
 
   return (
     <>
-    <div className='dec flex'>
-      <img src={Welcome} alt='welcome'></img>
-    </div>
-    <div className='form flex'>
-      <div className='box1'> 
-           <Box2/>
-      </div>
-    </div>
+    <Box2/>
     </>
   );
 
@@ -238,46 +231,79 @@ var list1 = ["General","Arts","Athelete","Author","Advertising",
              "Xerox",
              "Yoga",
              "zoo"];
-return (
-      <div className='box2 active'>
-            <p><strong>Hello,</strong> we are very Happy to see you here, 
-                 <br></br> We have Just <strong> One </strong> more step 
-                 <br></br> We have gathered some information about you,
-                 <br></br> Please Fill remaining details and continue.</p>
-           <div className='image flex'><img src={Welcome} alt='welcome'></img></div>
-           <h4>Choose your Profile Pic : </h4>
-           <h6 style={{"margin":"5px 0","opacity":"0.5","letterSpacing":"1px"}}> Suggestion : Try to select a square shaped Image <br></br> 1:1 ratio image </h6>
-           <div className='pro_img flex'>
-             <img ref={my_img} src={details[0]} alt='pro'></img>
-             <i className="fas fa-camera" onClick={() => file_ref.current.click()}></i>
-             <input type='file' multiple={false} ref={file_ref} hidden accept="image/*" onChange={(e) => {Image_up(e)}}></input>
-           </div>
-           <div className={classi} ref={con_ref1}>
-             <label>User Name </label>
-             <input type='text' value={details[1]} placeholder={list[1]} onFocus={() => setClassi('input active')} onBlur={Blur1} onChange={Change1}></input>
-             <i className="fas fa-pen options"></i>
-           </div>
-           <div className='input lock'>
-             <label>Email </label>
-             <input type='text' value={details[2]} readOnly></input>
-             <i className="fas fa-lock options"></i>
-           </div>
-           <h4> What describes you the best ? </h4>
-           <div className='input' style={{"margin":"10px 0"}}>
-             <select value={details[3]} onChange={(e) => {Cat1(e)} }>
-                {
-                  list1.map(item => <option value={item}>{item}</option>)
-                }
-             </select>
-             <i className="fas fa-pen options"></i>
-           </div>
-           <h2 className={sending}>Loading</h2>
-           <div className='buttons flex'>
-             <button onClick={() => setDetails(list)}>cancel</button>
-             <button onClick={Fetchdata}>continue</button>
-           </div>
-        </div>
+const [croppage,setCroppage] = useState(false);
+if (croppage){
+
+  return (
+    <div className='box2 crop'>
+      <h2> Crop page </h2>
+    </div>
   );
+
+}else{
+
+  var img_s = {"--img": "url("+details[0]+")"};
+
+  return (
+
+    <>
+    
+    <div className='dec flex'>
+      <img src={Welcome} alt='welcome'></img>
+    </div>
+    <div className='form flex'>
+      <div className='box1'>
+
+      <div className='box2 active'>
+          <p><strong>Hello,</strong> we are very Happy to see you here, 
+               <br></br> We have Just <strong> One </strong> more step 
+               <br></br> We have gathered some information about you,
+               <br></br> Please Fill remaining details and continue.</p>
+         <div className='image flex'><img src={Welcome} alt='welcome'></img></div>
+         <h4>Choose your Profile Pic : </h4>
+         <h6 style={{"margin":"5px 0","opacity":"0.5","letterSpacing":"1px"}}> Suggestion : Try to select a square shaped Image <br></br> 1:1 ratio image </h6>
+         <div style={{"display":"flex","position":"relative","justifyContent":"flex-end"}}>
+         <label className='crop1' onClick={() => setCroppage(true)}> Crop Image </label>
+         </div>
+         <div className='pro_img flex'>
+           <div ref={my_img} className='image_box' style={img_s}></div>
+           <i className="fas fa-camera" onClick={() => file_ref.current.click()}></i>
+           <input type='file' multiple={false} ref={file_ref} hidden accept="image/*" onChange={(e) => {Image_up(e)}}></input>
+         </div>
+         <div className={classi} ref={con_ref1}>
+           <label>User Name </label>
+           <input type='text' value={details[1]} placeholder={list[1]} onFocus={() => setClassi('input active')} onBlur={Blur1} onChange={Change1}></input>
+           <i className="fas fa-pen options"></i>
+         </div>
+         <div className='input lock'>
+           <label>Email </label>
+           <input type='text' value={details[2]} readOnly></input>
+           <i className="fas fa-lock options"></i>
+         </div>
+         <h4> What describes you the best ? </h4>
+         <div className='input' style={{"margin":"10px 0"}}>
+           <select value={details[3]} onChange={(e) => {Cat1(e)} }>
+              {
+                list1.map(item => <option value={item}>{item}</option>)
+              }
+           </select>
+           <i className="fas fa-pen options"></i>
+         </div>
+         <h2 className={sending}>Loading</h2>
+         <div className='buttons flex'>
+           <button onClick={() => setDetails(list)}>cancel</button>
+           <button onClick={Fetchdata}>continue</button>
+         </div>
+    </div>
+
+      </div>
+    </div>
+
+    </>
+
+  );
+
+}
 
 }
 
