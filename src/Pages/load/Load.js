@@ -18,10 +18,14 @@ function Error(){
         const docRef = doc(base,"users",location.state.Uid,"profile","visible");
         const docSnap = await getDoc(docRef);
          if (docSnap.exists()) {
-             navigate('/aoight-dashboard',{state:location.state,replace:true});
+             setTimeout(() => {
+              navigate('/aoight-dashboard',{state:location.state,replace:true});
+             }, 1800);
             } else {
               // console.log("New user");
-              navigate('/aoight-new',{state:location.state,replace:true});
+              setTimeout(() => {
+                navigate('/aoight-new',{state:location.state,replace:true});
+              }, 1800);
            }
       }
     
