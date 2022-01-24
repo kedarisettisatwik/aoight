@@ -36,21 +36,11 @@ function Intro() {
                           "Photo": user.photoURL,
                           "LastLogin":user.metadata.lastLoginAt,
                           "Uid":user.uid};
-        // console.log(user);
         // console.log(user_data);
-        // sessionStorage.setItem("user", JSON.stringify(user_data));
-
         console.log(user);
         console.log(token);
-
         
-        if (user.metadata.creationTime === user.metadata.lastSignInTime){
-           navigate('/aoight-new',{state:user_data,replace:true});
-        }else{
-           navigate('/aoight-dashboard',{state:user_data,replace:true});
-        }
-
-        // navigate('/aoight-new',{state:user_data,replace:false});
+        navigate('/aoight-load',{state:user_data,replace:true});
 
       }).catch((error) => {
         console.log(error);
