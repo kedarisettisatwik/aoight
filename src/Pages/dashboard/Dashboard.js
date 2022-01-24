@@ -4,6 +4,7 @@ import Error from '../error/Error';
 import './dash.css';
 import base from "../../firebase";
 import { collection,getDocs, doc, getDoc } from 'firebase/firestore/lite';
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 
 const Ele = () => {
 
@@ -25,6 +26,7 @@ function Aap(){
   const [loading,setLoading] = useState(true);
   
   async function getvalues(){
+
     setLoading(true);
     const docRef = doc(base,"users",location.state.Uid,"profile","visible");
     const docSnap = await getDoc(docRef);
@@ -39,6 +41,7 @@ function Aap(){
     // doc.data() will be undefined in this case
            console.log("No such document!");
        }
+       
   }
 
   useEffect(() => {
@@ -48,14 +51,12 @@ function Aap(){
   if(!loading){
     return (
       <>
-      <div> ------------------ from firebase ---------------- </div>
-      <img alt='pro' src={items.Photo}></img>
-      <h3>HI Mr. {items.Name} - {items.Tag}</h3>
-      <p> {items.Email} <br></br> </p>
-      <div>---------------- using location -------------- </div>
-      <img alt='pro' src={location.state.Photo}></img>
-      <h3>HI Mr. {location.state.Name} - {location.state.Tag}</h3>
-      <p> {location.state.Email} <br></br> </p>
+      <BrowserView>
+               <h2>Seeing in Laptop</h2>
+      </BrowserView>
+      <MobileView>
+               <h2>Seeing in Mobile</h2>
+      </MobileView>
       </>
     );
   }else{
