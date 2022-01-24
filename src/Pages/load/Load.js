@@ -20,12 +20,12 @@ function Error(){
          if (docSnap.exists()) {
              setTimeout(() => {
               navigate('/aoight-dashboard',{state:location.state,replace:true});
-             }, 1800);
+             }, 800);
             } else {
               // console.log("New user");
               setTimeout(() => {
                 navigate('/aoight-new',{state:location.state,replace:true});
-              }, 1800);
+              }, 800);
            }
       }
     
