@@ -38,7 +38,7 @@ const Draw = () => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()){
-      navigate('/aoight-dashboard',{state:location.state,replace:true});
+      console.log("already");
     }else{
 
     await setDoc(doc(base, "search","1mail"),mail_obj,{merge:true}); 
