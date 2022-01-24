@@ -202,11 +202,11 @@ async function Fetchdata(){
   tag_obj[key1] = sending1.Uid;
 
   if (sending1.Tag === "General"){
-    await setDoc(doc(base,"search",sending1.Tag),tag_obj,{merge:true})
-   .then((result) => {console.log("tag add");x += 1;Navi()}).catch((error) => {console.log(error)});
-  }else{
     x += 1;
     Navi();
+  }else{
+    await setDoc(doc(base,"search",sending1.Tag),tag_obj,{merge:true})
+   .then((result) => {console.log("tag add");x += 1;Navi()}).catch((error) => {console.log(error)});
   }
 
 }
