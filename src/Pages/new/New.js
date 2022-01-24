@@ -22,9 +22,7 @@ const Ele = () => {
 const Draw = () => {
 
   const location = useLocation();
-
-  const navigate = useNavigate();
-
+  
   async function Fetchbefore(){
     // console.log('add data after load');
 
