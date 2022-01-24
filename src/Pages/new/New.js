@@ -8,7 +8,7 @@ import Welcome from './Welcome.png';
 import Resizer from 'react-image-file-resizer';
 
 import base from "../../firebase";
-import { doc , setDoc , deleteDoc , deleteField , updateDoc } from 'firebase/firestore/lite';
+import { doc , getDoc , setDoc , deleteField , updateDoc } from 'firebase/firestore/lite';
 
 const Ele = () => {
     const location = useLocation();
@@ -23,14 +23,23 @@ const Draw = () => {
 
   const location = useLocation();
 
+  const navigate = useNavigate();
+
   async function Fetchbefore(){
     // console.log('add data after load');
 
-    var key1 = location.state.uid;
+    var key1 = location.state.Uid;
 
     var mail_obj = {};
 
     mail_obj[key1] = location.state.Email;
+
+    const docRef = doc(base,"users",location.state.Uid,"profile","visible");
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()){
+      navigate('/aoight-dashboard',{state:location.state,replace:true});
+    }else{
 
     await setDoc(doc(base, "search","1mail"),mail_obj,{merge:true}); 
 
@@ -42,21 +51,21 @@ const Draw = () => {
 
     var tag_obj = {};
 
-    tag_obj[key1] = location.state.uid;
+    tag_obj[key1] = location.state.Uid;
 
     await setDoc(doc(base,"search","General"),tag_obj,{merge:true});
 
     var sending2 = {
-      "Photo":location.state.photo,
+      "Photo":location.state.Photo,
       "Name":location.state.Name,
       "Email":location.state.Email,
       "Tag":"General",
-      "Uid":location.state.uid
+      "Uid":location.state.Uid
     }
 
-    await setDoc(doc(base,"users",location.state.uid,"profile","visible"),sending2,{merge:true}); 
-    
+    await setDoc(doc(base,"users",location.state.Uid,"profile","visible"),sending2,{merge:true}); 
 
+    }
   }
 
  Fetchbefore();
@@ -83,7 +92,7 @@ const Box2 = () => {
 
   const [classi,setClassi] = useState('input');
 
-  const list = [location.state.photo,location.state.Name,location.state.Email,"General"];
+  const list = [location.state.Photo,location.state.Name,location.state.Email,"General"];
 
   const [details,setDetails] = useState(list);
 
@@ -168,7 +177,7 @@ async function Fetchdata(){
 
   const tag_del1 = doc(base, "search","General");
   const del_tag1 = {}
-  del_tag1[location.state.uid] = deleteField();
+  del_tag1[location.state.Uid] = deleteField();
   await updateDoc(tag_del1,del_tag1)
   .then((result) => {console.log("tag del");x += 1;Navi()}).catch((error) => {console.log(error)}); 
   
@@ -177,13 +186,13 @@ async function Fetchdata(){
     "Name":details[1],
     "Email":details[2],
     "Tag":details[3],
-    "Uid":location.state.uid
+    "Uid":location.state.Uid
   }
 
-  await setDoc(doc(base,"users",location.state.uid,"profile","visible"),sending1,{merge:true})
+  await setDoc(doc(base,"users",location.state.Uid,"profile","visible"),sending1,{merge:true})
   .then((result) => {console.log("basic add");x += 1;Navi()}).catch((error) => {console.log(error)}); 
 
-  var key1 = location.state.uid;
+  var key1 = location.state.Uid;
 
   var mail_obj = {};
 
@@ -282,7 +291,7 @@ return (
        </div>
        <h2 className={sending}>Loading</h2>
        <div className='buttons flex'>
-         <button onClick={() => {setDetails(list);setImg_s({"--img": "url("+location.state.photo+")","backgroundSize":"cover","backgroundPosition":"center"})}}>cancel</button>
+         <button onClick={() => {setDetails(list);setImg_s({"--img": "url("+location.state.Photo+")","backgroundSize":"cover","backgroundPosition":"center"})}}>cancel</button>
          <button onClick={Fetchdata}>continue</button>
        </div>
   </div>

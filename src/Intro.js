@@ -32,10 +32,10 @@ function Intro() {
         const user = result.user;
         const user_data = {"Name" : user.displayName,
                            "Email" : user.email,
-                          "verification" : user.emailVerified,
-                          "photo": user.photoURL,
+                          "Verification" : user.emailVerified,
+                          "Photo": user.photoURL,
                           "LastLogin":user.metadata.lastLoginAt,
-                          "uid":user.uid};
+                          "Uid":user.uid};
         // console.log(user);
         // console.log(user_data);
         // sessionStorage.setItem("user", JSON.stringify(user_data));
