@@ -8,7 +8,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // import firebase from 'firebase/compat/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider  } from "firebase/auth";
 
 function Intro() {
 
@@ -24,11 +24,11 @@ function Intro() {
   const Google_sign = () =>{
       const provider = new GoogleAuthProvider();
       const auth = getAuth();
-    
+
       signInWithPopup(auth, provider).then((result) => {
         //  console.log(result); 
-        //  const credential = GoogleAuthProvider.credentialFromResult(result);
-        //  const token = credential.accessToken;
+         const credential = GoogleAuthProvider.credentialFromResult(result);
+         const token = credential.accessToken;
         const user = result.user;
         const user_data = {"Name" : user.displayName,
                            "Email" : user.email,
@@ -40,12 +40,14 @@ function Intro() {
         // console.log(user_data);
         // sessionStorage.setItem("user", JSON.stringify(user_data));
 
-        // console.log(user);
+        console.log(user);
+        console.log(token);
+
         
         if (user.metadata.creationTime === user.metadata.lastSignInTime){
-          navigate('/aoight-new',{state:user_data,replace:true});
+           navigate('/aoight-new',{state:user_data,replace:true});
         }else{
-          navigate('/aoight-dashboard',{state:user_data,replace:true});
+           navigate('/aoight-dashboard',{state:user_data,replace:true});
         }
 
         // navigate('/aoight-new',{state:user_data,replace:false});

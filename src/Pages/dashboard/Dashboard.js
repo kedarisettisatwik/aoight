@@ -7,14 +7,18 @@ import './dash.css';
 
 const Ele = () => {
 
-  const location = useLocation();
-  if (location.state){
-    return (
-      <h2>Old User</h2>
-    );
-  }else{
-    return (<Error/>);
-  }
+  // const location = useLocation();
+  // if (location.state){
+  //   return (
+  //     <h2>Old User</h2>
+  //   );
+  // }else{
+  //   return (<Error/>);
+  // }
+
+  return (
+    <h2>old user </h2>
+  );
 
 }
 
