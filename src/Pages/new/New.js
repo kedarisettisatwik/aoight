@@ -249,7 +249,9 @@ return (
     <div className='box1'>
 
     <div className='box2 active'>
-        <p><strong>Hello,</strong> we are very Happy to see you here, 
+       <h6 style={{"margin":"5px 0","opacity":"0.5","letterSpacing":"1px"}}>Refrehing this Page assume's that all data is correct </h6>
+       <h6 style={{"margin":"5px 0","opacity":"1","letterSpacing":"1px"}}>use can change This information after, Any time ..</h6>
+         <p><strong>Hello,</strong> we are very Happy to see you here, 
              <br></br> We have Just <strong> One </strong> more step 
              <br></br> We have gathered some information about you,
              <br></br> Please Fill remaining details and continue.</p>
