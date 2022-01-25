@@ -10,7 +10,13 @@ function Aap(){
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [items,setItems] = useState({});
+  const [details,setDetails] = useState(
+    {"Name":location.state.Name,
+    "Photo":location.state.Photo,
+    "Email":location.state.Email,
+    "Uid":location.state.Uid,
+    "Tag":"General"}
+  );
   
   async function getvalues(){
 
@@ -20,7 +26,7 @@ function Aap(){
             const ob = docSnap.data();
             // console.log(ob);
             var li = {"Name":ob.Name,"Photo":ob.Photo,"Email":ob.Email,"Tag":ob.Tag,"Uid":ob.Uid};
-            setItems(li);
+            setDetails(li);
         } else {
            //  console.log("No such document!");
            navigate('/aoight',{replace:'true'});
@@ -28,14 +34,33 @@ function Aap(){
 
   }
 
-  getvalues();
+  useEffect(() => {
+    getvalues();
+  },[])
 
   return(
     <>
        <div className='flex dash'>
+
          <div className='side'>
-           <h3>HEllo</h3>
+
+          <div className='nav'>
+
+            <div className='name flex'>
+                <div className='img' style={{'--i':"url("+details.Photo+")"}}>
+                  <div className='cover'></div>
+                  <div className='contain'></div>
+                </div>
+                <p>
+                  <span>{details.Name}</span><br></br>
+                  <label>{details.Email}</label>
+                </p>
+            </div>
+
+          </div>
+
          </div>
+
        </div>
     </>
   )

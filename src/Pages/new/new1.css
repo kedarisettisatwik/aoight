@@ -207,7 +207,8 @@
     height:90px;
     padding:5px;
 }
-.screen .form .box1 .box2.active .pro_img  .image_box .contain,.screen .form .box1 .box2.active .pro_img  .image_box .cover{
+.screen .form .box1 .box2.active .pro_img  .image_box .contain,
+.screen .form .box1 .box2.active .pro_img  .image_box .cover{
     background-image: var(--img);
     background-repeat: no-repeat;
     background-position: center;
