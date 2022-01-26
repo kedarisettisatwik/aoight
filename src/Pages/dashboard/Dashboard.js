@@ -45,11 +45,23 @@ function Aap(){
     setHtml(pre + " append ");
   }
 
+  function Nav(){
+    return (
+      <ul className='flex chats'>
+        <li>Dashboard</li>
+        <li>Chats</li>
+        <li>Public</li>
+      </ul>
+    );
+  }
+
   return(
     <>
        <div className='dash'>
 
-       <div className='name flex' onClick={() => Addhtml()}>
+         <nav className='flex'>
+
+         <div className='name flex' onClick={() => Addhtml()}>
                 <div className='img' style={{'--i':"url("+details.Photo+")"}}>
                   <div className='cover'></div>
                   <div className='contain'></div>
@@ -59,6 +71,10 @@ function Aap(){
                   <label>{details.Email}</label>
                 </p>
         </div>
+
+        <Nav/>
+
+         </nav>
 
         <div className='flex htmltoreact' style={{"width":"100%","height":"500px"}}>
           <div contentEditable='true'  dangerouslySetInnerHTML={{__html:htmlpart}} >
