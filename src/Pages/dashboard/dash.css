@@ -9,22 +9,16 @@
     width:100%;
     height:100vh;
     overflow:hidden;
-    justify-content: flex-start;
 }
-.dash .side{
+.dash .name{
     width:300px;
-    height:100%;
-    position: relative;
-}
-.dash .side .name{
-    width:100%;
     cursor: pointer;
     justify-content:flex-start;
     padding:12px 12px 0px 20px;
     align-items: stretch;
     position: relative;
 }
-.dash .side .name .img{
+.dash .name .img{
     height:55px;
     width: 55px;
     box-shadow: 0 6px 24px rgb(0,0,0,0.2);
@@ -32,8 +26,8 @@
     border-radius:10px;
     margin-right:15px;
 }
-.dash .side .name .img .cover,
-.dash .side .name .img .contain{
+.dash .name .img .cover,
+.dash .name .img .contain{
     position: absolute;
     top:0;
     left:0;
@@ -44,15 +38,15 @@
     background-repeat: no-repeat;
     background-image:var(--i);
 }
-.dash .side .name .img .cover{
+.dash .name .img .cover{
     background-size: cover;
     opacity:0.25;
     filter:grayscale(0.5);
 }
-.dash .side .name .img .contain{
+.dash .name .img .contain{
     background-size: contain;
 }
-.dash .side .name p{
+.dash .name p{
     font-size:14px;
     font-weight:bold;
     letter-spacing:1px;
@@ -62,12 +56,12 @@
     justify-content: space-around;
     height:55px;
 }
-.dash .side .name p label{
+.dash .name p label{
     opacity:0.5;
     font-size:11px;
 }
-.dash .side .name p label,
-.dash .side .name p span{
+.dash .name p label,
+.dash .name p span{
     width:100%;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -38,13 +38,18 @@ function Aap(){
     getvalues();
   },[])
 
+  const [htmlpart,setHtml]  = useState("<p> I am "+ details.Name +"</p>");
+
+  function Addhtml(){
+    var pre = htmlpart;
+    setHtml(pre + " append ");
+  }
+
   return(
     <>
-       <div className='flex dash'>
+       <div className='dash'>
 
-         <div className='side'>
-
-            <div className='name flex'>
+       <div className='name flex' onClick={() => Addhtml()}>
                 <div className='img' style={{'--i':"url("+details.Photo+")"}}>
                   <div className='cover'></div>
                   <div className='contain'></div>
@@ -53,9 +58,13 @@ function Aap(){
                   <span>{details.Name}</span>
                   <label>{details.Email}</label>
                 </p>
-            </div>
+        </div>
 
-         </div>
+        <div className='flex htmltoreact' style={{"width":"100%","height":"500px"}}>
+          <div contentEditable='true'  dangerouslySetInnerHTML={{__html:htmlpart}} >
+
+          </div>
+        </div>
 
        </div>
     </>
