@@ -44,20 +44,16 @@ function Aap(){
 
          <div className='side'>
 
-          <div className='nav'>
-
             <div className='name flex'>
                 <div className='img' style={{'--i':"url("+details.Photo+")"}}>
                   <div className='cover'></div>
                   <div className='contain'></div>
                 </div>
-                <p>
-                  <span>{details.Name}</span><br></br>
+                <p className='flex'>
+                  <span>{details.Name}</span>
                   <label>{details.Email}</label>
                 </p>
             </div>
-
-          </div>
 
          </div>
 
