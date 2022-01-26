@@ -48,9 +48,11 @@ function Aap(){
   function Nav(){
     return (
       <ul className='flex chats'>
-        <li>Dashboard</li>
         <li>Chats</li>
-        <li>Public</li>
+        <li>Calender</li>
+        <li>Blogs</li>
+        <li>Dashboard</li>
+        <li>Tags</li>
       </ul>
     );
   }
