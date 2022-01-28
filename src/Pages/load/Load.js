@@ -22,7 +22,15 @@ function Error(){
         const docSnap = await getDoc(docRef);
          if (docSnap.exists()) {
              setTimeout(() => {
-              navigate('/aoight-dashboard',{state:location.state,replace:true});
+               if (isBrowser){
+                 navigate('/aoight-dashboard',{state:location.state,replace:true});
+               }else if(isMobile){
+                 if (width1 > 900){
+                   navigate('/aoight-dashboard',{state:location.state,replace:true});
+                 }else{
+                   // small screen
+                 }
+               }
              }, 1000);
             } else {
               // console.log("New user");
