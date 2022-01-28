@@ -45,21 +45,9 @@ function Aap(){
     setHtml(pre + " append ");
   }
 
-  function Nav(){
-    return (
-      <ul className='flex chats'>
-        <li>Chats</li>
-        <li>Calender</li>
-        <li>Blogs</li>
-        <li>Dashboard</li>
-        <li>Tags</li>
-      </ul>
-    );
-  }
-
   return(
     <>
-       <div className='dash'>
+       <div className='dash flex'>
 
          <nav className='flex'>
 
@@ -74,15 +62,7 @@ function Aap(){
                 </p>
         </div>
 
-        <Nav/>
-
          </nav>
-
-        <div className='flex htmltoreact' style={{"width":"100%","height":"500px"}}>
-          <div contentEditable='true'  dangerouslySetInnerHTML={{__html:htmlpart}} >
-
-          </div>
-        </div>
 
        </div>
     </>
