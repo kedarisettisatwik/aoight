@@ -11,9 +11,13 @@
     overflow:hidden;
     flex-direction: column;
 }
+.dash nav{
+    padding:0 10px;
+}
 .dash nav,.dash .board{
     width:550px;
     position: relative;
+    max-width:100%;
 }
 .dash .board{
     height:500px;
