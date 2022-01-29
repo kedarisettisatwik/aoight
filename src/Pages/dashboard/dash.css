@@ -9,18 +9,29 @@
     width:100%;
     height:100vh;
     overflow:hidden;
-}
-.dash .sidebar{
-    position:absolute;
-    top:0;
-    left:0;
-    width:350px;
-    height:100vh;
-    padding:10px;
-}
-.dash nav{
     flex-direction: column;
-    width:100%;
+}
+.dash nav,.dash .board{
+    width:550px;
+    position: relative;
+}
+.dash .board{
+    height:500px;
+    margin-top:20px;
+    position: relative;
+}
+.dash nav button{
+    cursor: pointer;
+    outline: none;
+    background: none;
+    border: none;
+    padding:10px 15px;
+    background-color:var(--blue1);
+    border-radius:5px;
+    font-weight: bold;
+    color: white;
+    font-size:14px;
+    letter-spacing:2px;
 }
 .dash .name{
     width:100%;
@@ -34,7 +45,7 @@
     box-shadow: 0 4px 15px rgb(0,0,0,0.18);
     position: relative;
     border-radius:10px;
-    margin-right:15px;
+    margin-right:25px;
     border:3px solid white;
     background-color: white;
 }
@@ -82,54 +93,33 @@
     white-space: nowrap;
     text-align: left;
 }
-.dash .name i.add{
-    color:var(--blue1);
-    cursor: pointer;
-    line-height:30px;
-    height:30px;
-    text-align: center;
-    position: absolute;
-    right: 0;
-    width:30px;
-    font-size:20px;
+.dash .board .buttons,.dash .board .text{
+    height:100%;
 }
-.dash nav .buttons{
-    margin:10px 0;
-    width:100%;
+.dash .board .buttons{
+    width:60px;
+    flex-direction: column;
     justify-content: space-around;
 }
-.dash nav .buttons .page{
-    padding:10px;
-    font-size:14px;
+.dash .board .buttons .button{
     cursor: pointer;
-    border-radius:5px;
-    font-weight: bold;
-    opacity:0.5;
-    transition:0.3s;
-    transition-delay:0.3s;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    text-align: center;
 }
-.dash nav .buttons .page i{
-    margin-right:10px;
-}
-.dash nav .buttons .page.active{
-    background-color:rgba(108,38,223);
-    color: white;
-    opacity: 1;
-    font-weight:lighter;
-}
-.dash nav .buttons .page.active span{
-    letter-spacing:1px;
-}
-.dash .sidebar .sidesection{
-    width:100%;
-    height:calc(100% - 120px);
+.dash .board .text{
+    width:calc(100% - 70px);
     overflow-x: hidden;
     overflow-y: auto;
+    display: block;
+    padding:10px;
+    margin-left:10px;
+    padding-left:20px;
+    caret-color:var(--blue1);
+    font-size:13px;
+    letter-spacing:1px;
 }
-.dash .mainsection{
-    position:absolute;
-    width:calc(100vw - 350px);
-    height:100vh;
-    top:0;
-    left:350px;
+.dash .board .text:focus{
+    outline:2px solid var(--blue1);
 }

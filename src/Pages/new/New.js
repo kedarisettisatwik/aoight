@@ -55,6 +55,7 @@ const Draw = () => {
       "Name":location.state.Name,
       "Email":location.state.Email,
       "Tag":"General",
+      "Text":"Hello",
       "Uid":location.state.Uid
     }
 
@@ -175,6 +176,7 @@ async function Fetchdata(){
     "Name":details[1],
     "Email":details[2],
     "Tag":details[3],
+    "Text":"Hello",
     "Uid":location.state.Uid
   }
 

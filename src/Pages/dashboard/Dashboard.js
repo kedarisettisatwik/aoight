@@ -1,9 +1,9 @@
-import React, { useState ,useEffect }from 'react';
+import React, { useState ,useEffect, createRef }from 'react';
 import { useLocation, useNavigate} from 'react-router-dom';
 import Error from '../error/Error';
 import './dash.css';
 import base from "../../firebase";
-import { collection,getDocs, doc, getDoc } from 'firebase/firestore/lite';
+import {doc, getDoc,setDoc } from 'firebase/firestore/lite';
 import {isMobile } from 'react-device-detect';
 
 function Aap(){
@@ -16,12 +16,13 @@ function Aap(){
     "Photo":location.state.Photo,
     "Email":location.state.Email,
     "Uid":location.state.Uid,
+    "Text":"Hello",
     "Tag":"General"}
   );
 
   const [pages,setPages] = useState(["page active","page","page"]);
 
-  const [count,setCount] = useState(0);
+  const ref1 = createRef();
 
   if (isMobile){
     setPages(["page active","page","page","page"]);
@@ -34,7 +35,7 @@ function Aap(){
      if (docSnap.exists()) {
             const ob = docSnap.data();
             // console.log(ob);
-            var li = {"Name":ob.Name,"Photo":ob.Photo,"Email":ob.Email,"Tag":ob.Tag,"Uid":ob.Uid};
+            var li = {"Name":ob.Name,"Photo":ob.Photo,"Email":ob.Email,"Tag":ob.Tag,"Uid":ob.Uid,"Text":ob.Text};
             setDetails(li);
         } else {
            //  console.log("No such document!");
@@ -43,87 +44,30 @@ function Aap(){
 
   }
 
- function Pagechange(a){
-   if (isMobile){
-     if (a === 0){
-       setPages(["page active","page","page","Page"]);
-     }else if (a === 1){
-       setPages(["page","page active","page","page"]);
-     }else if (a === 2){
-      setPages(["page","page","page active","page"]);
-     }else if (a === 3){
-      setPages(["page","page","page active","page active"]);
-     }
-   }else{
-    if (a === 0){
-      setPages(["page active","page","page"]);
-    }else if (a === 1){
-      setPages(["page","page active","page"]);
-    }else if (a === 2){
-     setPages(["page","page","page active"]);
-    }
-   }
-   setCount(a);
- }
-
   useEffect(() => {
     getvalues();
   },[]);
 
-  function Nav(){
-    return(
-         <div className='buttons flex'>
-           <div className={pages[0]} onClick={() => Pagechange(0)}>
-             <i className="fas fa-home"></i> <span>Home</span>
-           </div>
-           <div className={pages[1]} onClick={() => Pagechange(1)}>
-             <i className="fas fa-comment-alt"></i><span>Chats</span>
-           </div>
-           <div className={pages[2]} onClick={() => Pagechange(2)}>
-             <i className="fab fa-safari"></i><span>Browse</span>
-           </div>
-         </div>
-    );
+  async function Save1(){
+    const x = ref1.current.innerHTML;
+    // console.log(x);
+    const Ref = doc(base,"users",location.state.Uid,"profile","visible");
+    // Set the "capital" field of the city 'DC'
+    var sending1 = {"Text":x};
+    await setDoc(Ref,sending1,{merge:true})
+    .then((result) => {console.log("basic add");}).catch((error) => {console.log(error)}); 
   }
 
-  function Space(){
-    if (count === 0){
-      return (
-        <h3>Home page</h3>
-      );
-    }else if (count === 1){
-      return(
-        <h3>Chats</h3>
-      );
-    }else if (count === 2){
-      return(
-      <h3>Profile</h3>
-      );
-    }
-  }
-
-  function Main(){
-    if (count === 0){
-      return (
-        <h3>Home page</h3>
-      );
-    }else if (count === 1){
-      return(
-        <h3>Chats</h3>
-      );
-    }else if (count === 2){
-      return(
-      <h3>Profile</h3>
-      );
-    }
+  function Exce(){
+    
   }
 
   return(
     <>
        <div className='dash flex'>
-         <div className='sidebar'>
 
          <nav className='flex'>
+
          <div className='name flex'>
                 <div className='img' style={{'--i':"url("+details.Photo+")"}}>
                   <div className='cover'></div>
@@ -133,20 +77,49 @@ function Aap(){
                   <span>{details.Name}</span>
                   <label>{details.Email}</label>
                 </p>
-                <i className="far fa-plus-square add"></i>
          </div>
-         <Nav/>
+
+         <button onClick={() => Save1()}>save</button>
+
          </nav>
 
-         <section className='sidesection flex'>
-           <Space/>
+         <section className='board flex'>
+
+           <section className='buttons flex'>
+
+             <div className='button' onClick={() => {}}>
+               <i className="fas fa-eraser"></i>
+             </div>
+             <div className='button' onClick={(e) => {document.execCommand('bold', false,null);e.target.classList.toggle('active');}}>
+                 <i className="fas fa-bold"></i>
+             </div>
+             <div className='button' onClick={(e) => {document.execCommand('italic', false,null);e.target.classList.toggle('active');}}>
+                 <i className="fas fa-italic"></i>
+             </div>
+             <div className='button' onClick={(e) => {document.execCommand('underline', false,null);e.target.classList.toggle('active');}}>
+                <i className="fas fa-underline"></i>
+             </div>
+             <div className='button' onClick={(e) => {document.execCommand('strikeThrough', false,null);e.target.classList.toggle('active');}}>
+               <i className="fas fa-strikethrough"></i>
+             </div>
+             <div className='button' onClick={(e) => {document.execCommand('insertUnorderedList', false,null);e.target.classList.toggle('active');}}>
+               <i className="fas fa-list"></i>
+             </div>
+             <div className='button' onClick={(e) => {document.execCommand('insertOrderedList', false,null);e.target.classList.toggle('active');}}>
+               <i className="fas fa-list-ol"></i>
+             </div>
+             <div className='button' onClick={(e) => {document.execCommand('hiliteColor', false,'red');e.target.classList.toggle('active');}}>
+               <i className="fas fa-highlighter"></i>
+             </div>
+
+           </section>
+           
+           <section ref={ref1} className='text' contentEditable='true' dangerouslySetInnerHTML={{ __html: details.Text }}>
+
+           </section>
+
          </section>
 
-         <section className='mainsection flex'>
-           <Main/>
-         </section>
-
-         </div>
        </div>
     </>
   )
