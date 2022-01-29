@@ -20,13 +20,7 @@ function Aap(){
     "Tag":"General"}
   );
 
-  const [pages,setPages] = useState(["page active","page","page"]);
-
   const ref1 = createRef();
-
-  if (isMobile){
-    setPages(["page active","page","page","page"]);
-  }
 
   async function getvalues(){
 
@@ -56,10 +50,6 @@ function Aap(){
     var sending1 = {"Text":x};
     await setDoc(Ref,sending1,{merge:true})
     .then((result) => {console.log("basic add");}).catch((error) => {console.log(error)}); 
-  }
-
-  function Exce(){
-    
   }
 
   return(
