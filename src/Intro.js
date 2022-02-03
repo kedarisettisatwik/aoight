@@ -40,7 +40,7 @@ function Intro() {
         console.log(user);
         console.log(token);
         
-        navigate('/aoight-load',{state:user_data,replace:true});
+        navigate('/aoight-load',{state:user_data,replace:false});
 
       }).catch((error) => {
         console.log(error);

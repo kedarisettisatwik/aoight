@@ -77,29 +77,32 @@ function Aap(){
 
            <section className='buttons flex'>
 
-             <div className='button' onClick={() => {}}>
+             <div className='button' onClick={(e) => {document.execCommand('removeFormat', false,null);e.target.classList.toggle('active');}}>
                <i className="fas fa-eraser"></i>
              </div>
+
              <div className='button' onClick={(e) => {document.execCommand('bold', false,null);e.target.classList.toggle('active');}}>
                  <i className="fas fa-bold"></i>
              </div>
+
              <div className='button' onClick={(e) => {document.execCommand('italic', false,null);e.target.classList.toggle('active');}}>
                  <i className="fas fa-italic"></i>
              </div>
+
              <div className='button' onClick={(e) => {document.execCommand('underline', false,null);e.target.classList.toggle('active');}}>
                 <i className="fas fa-underline"></i>
              </div>
+
              <div className='button' onClick={(e) => {document.execCommand('strikeThrough', false,null);e.target.classList.toggle('active');}}>
                <i className="fas fa-strikethrough"></i>
              </div>
+
              <div className='button' onClick={(e) => {document.execCommand('insertUnorderedList', false,null);e.target.classList.toggle('active');}}>
                <i className="fas fa-list"></i>
              </div>
+
              <div className='button' onClick={(e) => {document.execCommand('insertOrderedList', false,null);e.target.classList.toggle('active');}}>
                <i className="fas fa-list-ol"></i>
-             </div>
-             <div className='button' onClick={(e) => {document.execCommand('hiliteColor', false,'red');e.target.classList.toggle('active');}}>
-               <i className="fas fa-highlighter"></i>
              </div>
 
            </section>
