@@ -39,6 +39,7 @@ function Intro() {
         // console.log(user_data);
         console.log(user);
         console.log(token);
+        localStorage.setItem('token',token);
         
         navigate('/aoight-load',{state:user_data,replace:false});
 
