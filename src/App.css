@@ -336,6 +336,9 @@
     line-height:30px;
     height:30px;
     padding:0 10px;
+    overflow: hidden;
+    overflow-wrap: unset;
+    text-overflow: ellipsis;
 }
 #contact .box1 .cell .container .rev:nth-child(2n+1) h2{
     text-align: right;
