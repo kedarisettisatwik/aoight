@@ -6,6 +6,7 @@ import Dash from './Pages/dashboard/Dashboard';
 import Error  from './Pages/error/Error';
 import New from './Pages/new/New';
 import Load from './Pages/load/Load';
+import Savesquare from './Pages/game/Savesquare';
 
 function App(){
 
@@ -18,6 +19,7 @@ function App(){
        <Route path="/aoight-start" exact element={<Intro />} />
        <Route path="/aoight-dashboard" exact element={<Dash />} />
        <Route path="/aoight-new" exact element={<New />} />
+       <Route path="/save-square" exact element={<Savesquare />} />
        <Route path="*" exact element={<Error />} />
     </Routes>
   );
