@@ -4,6 +4,6 @@
   "start_url": ".",
   "display": "standalone",
   "description":"App of Infinity",
-  "theme_color": "#fff",
-  "background_color": "#ffffff"
+  "theme_color": "#000",
+  "background_color": "#000"
 }
