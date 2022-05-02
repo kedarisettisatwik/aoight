@@ -14,7 +14,8 @@ function App(){
 
   return (
     <Routes location={location} key={location.pathname}>
-       <Route path="/" exact element={<Intro />} />
+       {/* <Route path="/" exact element={<Intro />} /> */}
+       <Route path="/" exact element={<Savesquare />} />
        <Route path="/aoight-load" exact element={<Load />} />
        <Route path="/aoight-start" exact element={<Intro />} />
        <Route path="/aoight-dashboard" exact element={<Dash />} />
