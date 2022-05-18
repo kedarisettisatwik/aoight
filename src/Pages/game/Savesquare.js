@@ -8,11 +8,11 @@ function Savesquare() {
     const style1 = {"position":"relative","outline":"none","border":"none","width":"100vw","height":"100vh","display":"flex","justifyContent":"center","alignItems":"center"};    
     if (isMobile){
         return (
-            <iframe title='game1' src='https://kedarisettisatwik.github.io/square/rules.html?mobile=1' style={style1}></iframe>
+            <iframe title='game1' src='https://kedarisettisatwik.github.io?mobile=1' style={style1}></iframe>
             );
     }else{
         return (
-            <iframe title='game2' src='https://kedarisettisatwik.github.io/square/rules.html?mobile=0' style={style1}></iframe>
+            <iframe title='game2' src='https://kedarisettisatwik.github.io?mobile=0' style={style1}></iframe>
             );
     }
 }
