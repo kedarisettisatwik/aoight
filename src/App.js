@@ -16,11 +16,6 @@ function App(){
     <Routes location={location} key={location.pathname}>
        {/* <Route path="/" exact element={<Intro />} /> */}
        <Route path="/" exact element={<Savesquare />} />
-       <Route path="/aoight-load" exact element={<Load />} />
-       <Route path="/aoight-start" exact element={<Intro />} />
-       <Route path="/aoight-dashboard" exact element={<Dash />} />
-       <Route path="/aoight-new" exact element={<New />} />
-       <Route path="/save-square" exact element={<Savesquare />} />
        <Route path="*" exact element={<Error />} />
     </Routes>
   );

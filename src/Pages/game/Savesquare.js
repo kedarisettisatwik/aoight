@@ -1,10 +1,9 @@
 import React from 'react';
-import {isMobile } from 'react-device-detect';
 // import { useNavigate } from 'react-router-dom';
 
 function Savesquare() {
     return (
-        <div></div>
+        <iframe title='ifra' className='ii' src='https://kedarisettisatwik.github.io'></iframe>
     );
 }
 
