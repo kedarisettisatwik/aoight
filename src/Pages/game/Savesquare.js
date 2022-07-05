@@ -3,7 +3,7 @@ import React from 'react';
 
 function Savesquare() {
     return (
-        <iframe title='ifra' className='ii' src='https://kedarisettisatwik.github.io'></iframe>
+        <div></div>
     );
 }
 
