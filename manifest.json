@@ -2,7 +2,7 @@
   "short_name": "Aoight",
   "name": "Aoight",
   "start_url": ".",
-  "display": "standalone",
+  "display": "fullscreen",
   "description":"App of Infinity",
   "theme_color": "#fff",
   "background_color": "#fff"
