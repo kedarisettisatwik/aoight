@@ -2,7 +2,8 @@
 import React from 'react';
 import {Routes,Route,useLocation} from 'react-router-dom';
 import Error  from './Pages/error/Error';
-import Savesquare from './Pages/game/Savesquare';
+import Website from './Pages/website/Website';
+import Stock from './Pages/stock/Stock';
 
 function App(){
 
@@ -10,9 +11,9 @@ function App(){
 
   return (
     <Routes location={location} key={location.pathname}>
-       {/* <Route path="/" exact element={<Intro />} /> */}
-       <Route path="/" exact element={<Savesquare />} />
-       <Route path="*" exact element={<Error />} />
+      <Route path="/" exact element={<Website />} />
+      <Route path="/stock" exact element={<Stock />} />
+      <Route path="*" exact element={<Error />} />
     </Routes>
   );
 }
