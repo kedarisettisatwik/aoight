@@ -45,9 +45,9 @@ function Savesquare() {
       
       <div className="box">
       <a target='_self' href='https://kedarisettisatwik.github.io/tic/tactoe.html'>Tic Tac Toe</a>
+   <a target='_self' href="https://kedarisettisatwik.github.io/university/login.html" className="link">IRIS</a>
     <a target='_self' href='https://kedarisettisatwik.github.io/editor/filter.html'>Image Editor</a>
    <a target='_self' href="https://kedarisettisatwik.github.io/whatsapp/message.html" className="link">What's App</a>
-   <a target='_self' href="https://kedarisettisatwik.github.io/university/login.html" className="link">IRIS</a>
    <a target='_self' href="https://kedarisettisatwik.github.io/square/rules.html" className="link">Save The Square</a>
    <a target='_self' href="https://kedarisettisatwik.github.io/colors/game.html" className="link">Colors</a>
    <a target='_self' href = "https://kedarisettisatwik.github.io/snake/snake.html" className="link">snake game</a>  
