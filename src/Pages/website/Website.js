@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom';
 
 function Savesquare() {
@@ -44,6 +45,7 @@ function Savesquare() {
       <h2 className="pro_head">Projects</h2>
       
       <div className="box">
+        
       <a target='_self' href='https://kedarisettisatwik.github.io/tic/tactoe.html'>Tic Tac Toe</a>
    <a target='_self' href="https://kedarisettisatwik.github.io/university/login.html" className="link">IRIS</a>
     <a target='_self' href='https://kedarisettisatwik.github.io/editor/filter.html'>Image Editor</a>
@@ -110,6 +112,7 @@ function Savesquare() {
    <a target='_self' href = "https://kedarisettisatwik.github.io/projects/forms/search1.html" className="link">search bar 1</a>
    <a target='_self' href = "https://kedarisettisatwik.github.io/projects/other/para%201.html" className="link">Invisible para</a>
    <a target='_self' href = "https://kedarisettisatwik.github.io/rain.html" className="link">RAIN..</a> 
+   <Link to='/stock'>stock</Link>
    </div>
    
   </section>
