@@ -71,6 +71,11 @@
     margin:0 10px;
     padding:10px 0px;
     box-sizing: content-box;
+    transition:0.3s;
+    opacity:0.5;
+}
+#infin .main .nav .options img:hover{
+    opacity: 1;
 }
 #infin .main .nav .options img:nth-child(1){
     height:15px;
@@ -103,16 +108,38 @@
 #infin .main .nav .options.mini img:nth-child(2){
     display: block;
 }
-
-
-
-#infin .main .nav .options i{
-    font-size:20px;
-    padding:10px;
-    cursor: pointer;
+#infin .main .nav .options label{
+    position:absolute;
+    bottom:0;
+    transform:translateY(calc(50% + 0px));
+    color: white;
+    background-color: black;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing: 1px;
+    opacity:0;
+    transition:0.3s;
+    padding:5px 10px;
+    border-radius:5px;
 }
-
-
+#infin .main .nav .options img:nth-child(1):hover ~ label:nth-child(7){
+    opacity:1;
+}
+#infin .main .nav .options img:nth-child(2):hover ~ label:nth-child(8){
+    opacity:1;
+}
+#infin .main .nav .options img:nth-child(3):hover ~ label:nth-child(9){
+    opacity:1;
+}
+#infin .main .nav .options img:nth-child(4):hover ~ label:nth-child(10){
+    opacity:1;
+}
+#infin .main .nav .options img:nth-child(5):hover ~ label:nth-child(11){
+    opacity:1;
+}
+#infin .main .nav .options img:nth-child(6):hover ~ label:nth-child(12){
+    opacity:1;
+}
 
 
 

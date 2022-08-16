@@ -5,6 +5,7 @@ import darkmode from '../../assests/dark.png'
 import settings from '../../assests/settings.png'
 import minimize from '../../assests/minimize.png'
 import maximize from '../../assests/expand.png'
+import compose from '../../assests/compose.png'
 import { useState }from 'react';
 
 // import Error from '../error/Error';
@@ -38,7 +39,13 @@ function Board() {
           <img src={lightmode} alt='light mode'></img>
           <img src={darkmode} alt='dark mode'></img>
           <img src={settings} alt='settings'></img>
-          <i className="fa-solid fa-plus"></i>
+          <img src={compose} alt='compose'></img>
+          <label>Exit Full Screen</label>
+          <label>Full Screen</label>
+          <label>Light Mode</label>
+          <label>Dark Mode</label>
+          <label>Settings</label>
+          <label>Compose</label>
         </div>
       </nav>
   );
