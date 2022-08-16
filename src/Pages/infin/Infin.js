@@ -1,6 +1,6 @@
 import './infin.css';
 import React from 'react';
-// import { useState }from 'react';
+import { useState }from 'react';
 import Nav from './Nav.js'
 import Side from './Side.js'
 
@@ -13,11 +13,29 @@ import Side from './Side.js'
 
 function Board() {
 
+  const [cat,setCat] = useState('sort flex all')
+
+  const cat_change = (a) => {
+    setCat(a)
+  }
+
   return(
     <section id='infin'>
       <Side/>
       <section className='main'>
         <Nav/>
+        <section className='mails'>
+          <div className={cat}>
+            <div className='flex'>
+              <span onClick={() => {cat_change('sort all flex')}}>All</span>
+              <span onClick={() => {cat_change('sort read flex')}}>Read</span>
+              <span onClick={() => {cat_change('sort unread flex')}}>Unread</span>
+              <div className='line'></div>
+            </div>
+            <span className='flex' style={{'backgroundColor':'rgb(0,0,0,0.03)'}}>select</span>
+          </div>
+
+        </section>
       </section>
     </section>
   );

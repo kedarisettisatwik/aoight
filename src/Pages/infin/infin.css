@@ -189,5 +189,49 @@
 }
 #infin .sidebar .profile .name p{
     font-size:11px;
-    color:green;
+}
+#infin .main .mails{
+    width:420px;
+    border-right:1px solid rgb(0,0,0,0.1);
+    height:calc(100% - 70px);
+    position: relative;
+}
+#infin .main .sort{
+    position: relative;
+    height:50px;
+    width:100%;
+    border-bottom:1px solid rgb(0,0,0,0.1);
+    justify-content:space-between;
+}
+#infin .main .sort span,#infin .main .sort label{
+    margin:0 10px;
+    font-size:13px;
+    cursor: pointer;
+    padding: 10px;
+    transition:0.3s;
+}
+#infin .main .sort.all div span:nth-child(1),
+#infin .main .sort.read div span:nth-child(2)
+,#infin .main .sort.unread div span:nth-child(3){
+    color:blue;
+}
+#infin .main .sort div .line{
+    position: absolute;
+    bottom:-2px;
+    left:0;
+    height:4px;
+    width:50px;
+    left:0px;
+    background-color: blue;
+    border-radius:4px;
+    transition:0.3s;
+}
+#infin .main .sort.all div .line{
+    left:5px;
+}
+#infin .main .sort.read div .line{
+    left:66px;
+}
+#infin .main .sort.unread div .line{
+    left:146px;
 }
