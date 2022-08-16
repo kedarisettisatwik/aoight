@@ -1,11 +1,7 @@
-import './stock.css';
+import './infin.css';
 import React from 'react';
 // import { useState }from 'react';
-import Nav from './Nav.js'
-import Side from './Side.js'
-
 // import Error from '../error/Error';
-
 // import { useLocation, useNavigate} from 'react-router-dom';
 // import base from "../../firebase";
 // import {doc, getDoc,setDoc } from 'firebase/firestore/lite';
@@ -14,12 +10,17 @@ import Side from './Side.js'
 function Board() {
 
   return(
-    <section id='infin'>
-      <Side/>
-      <section className='main'>
-        <Nav/>
-      </section>
-    </section>
+      <div className='sidebar'>
+
+        <div className='profile flex'>
+            <div className='logo'>KS</div>
+            <div className='name flex'>
+                <h3>Kedar satwik</h3>
+                <p>satwik1330@gmail.com</p>
+            </div>
+        </div>
+        
+      </div>
   );
 }
 

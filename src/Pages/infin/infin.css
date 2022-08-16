@@ -19,35 +19,24 @@
     align-items: center;
     flex-direction: row;
     border-top:1px solid rgb(0,0,0,0.1);
+    background-color: white;
 }
-#infin .sidebar{
-    width:300px;
-    height:100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
-    border-right:1px solid rgb(0,0,0,0.1);
-}
+
+
 #infin .main{
     position: relative;
-    width:calc(100% - 300px);
+    width:calc(100% - 250px);
     height:100vh;
 }
 #infin .main .nav{
     height:70px;
     position: relative;
-    justify-content: flex-start;
+    justify-content: space-between;
     border-bottom:1px solid rgb(0,0,0,0.1);
     padding:0 10px;
 }
-#infin .main .nav .search{
-    width:calc(100% - 250px - 500px);
-    height:100%;
-    border-right:1px solid rgb(0,0,0,0.1);
-    padding-right:20px;
-}
-#infin .main .nav .search form{
-    width:100%;
+#infin .main .nav form{
+    width:400px;
     height:50px;
     background-color: aliceblue;
     border-radius:8px;
@@ -56,34 +45,94 @@
     align-items: center;
     padding:0 5px;
 }
-#infin .main .nav .search input{
+#infin .main .nav form input{
     background: none;
     outline: none;
     border: none;
     font-size:12px;
     padding-right:10px;
+    padding-left:5px;
     width:100%;
 }
-#infin .main .nav .search i{
+#infin .main .nav form i{
     padding:10px;
     font-size:15px;
     cursor: pointer;
     color:gray;
 }
 #infin .main .nav .options{
-    width:500px;
     height:100%;
     position: relative;
+    padding:0 10px;
 }
-#infin .main .nav .profile{
-    width:calc(250px);
-    height:100%;
+#infin .main .nav .options img{
+    height:20px;
+    cursor: pointer;
+    margin:0 10px;
+    padding:10px 0px;
+    box-sizing: content-box;
+}
+#infin .main .nav .options img:nth-child(1){
+    height:15px;
+}
+#infin .main .nav .options img:nth-child(3){
+    height:30px;
+}
+#infin .main .nav .options.dark img:nth-child(4){
+    display: none;
+}
+#infin .main .nav .options.dark img:nth-child(3){
+    display:block;
+}
+#infin .main .nav .options.light img:nth-child(4){
+    display: block;
+}
+#infin .main .nav .options.light img:nth-child(3){
+    display: none;
+}
+
+#infin .main .nav .options.maxi  img:nth-child(1){
+    display: block;
+}
+#infin .main .nav .options.maxi img:nth-child(2){
+    display:none;
+}
+#infin .main .nav .options.mini img:nth-child(1){
+    display: none;
+}
+#infin .main .nav .options.mini img:nth-child(2){
+    display: block;
+}
+
+
+
+#infin .main .nav .options i{
+    font-size:20px;
+    padding:10px;
+    cursor: pointer;
+}
+
+
+
+
+
+#infin .sidebar{
+    width:250px;
+    height:100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    border-right:1px solid rgb(0,0,0,0.1);
+}
+#infin .sidebar .profile{
+    width:100%;
+    height:70px;
     position: relative;
     border-left:1px solid rgb(0,0,0,0.1);
     justify-content: flex-start;
     padding:0 10px;
 }
-#infin .main .nav .profile .logo{
+#infin .sidebar .profile .logo{
     width:45px;
     height:45px;
     border-radius:5px;
@@ -95,7 +144,7 @@
     color:rgb(153, 0, 0);
     font-weight:bold;
 }
-#infin .main .nav .profile .name{
+#infin .sidebar .profile .name{
     position: relative;
     width:calc(100% - 45px);
     padding-left:8px;
@@ -105,13 +154,13 @@
     flex-direction: column;
     align-items:flex-start;
 }
-#infin .main .nav .profile .name h3{
+#infin .sidebar .profile .name h3{
     color: black;
     font-size:13px;
     letter-spacing:1px;
     margin:4px 0;
 }
-#infin .main .nav .profile .name p{
+#infin .sidebar .profile .name p{
     font-size:11px;
     color:green;
 }
