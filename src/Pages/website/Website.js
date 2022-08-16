@@ -112,7 +112,7 @@ function Savesquare() {
    <a target='_self' href = "https://kedarisettisatwik.github.io/projects/forms/search1.html" className="link">search bar 1</a>
    <a target='_self' href = "https://kedarisettisatwik.github.io/projects/other/para%201.html" className="link">Invisible para</a>
    <a target='_self' href = "https://kedarisettisatwik.github.io/rain.html" className="link">RAIN..</a> 
-   <Link to='/stock'>stock</Link>
+   <Link to='/infin'>stock</Link>
    </div>
    
   </section>
