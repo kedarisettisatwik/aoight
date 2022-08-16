@@ -12,52 +12,106 @@
 #infin{
     width:100vw;
     height:100vh;
+    position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    border-top:1px solid rgb(0,0,0,0.1);
 }
-#infin .nav{
-    padding:0px 20px;
-    height:55px;
-    width:100%;
+#infin .sidebar{
+    width:300px;
+    height:100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
-    justify-content: space-between;
+    border-right:1px solid rgb(0,0,0,0.1);
+}
+#infin .main{
+    position: relative;
+    width:calc(100% - 300px);
+    height:100vh;
+}
+#infin .main .nav{
+    height:70px;
+    position: relative;
+    justify-content: flex-start;
     border-bottom:1px solid rgb(0,0,0,0.1);
+    padding:0 10px;
 }
-#infin .nav .search{
-    width:50%;
-    justify-content:center;
+#infin .main .nav .search{
+    width:calc(100% - 250px - 500px);
+    height:100%;
+    border-right:1px solid rgb(0,0,0,0.1);
+    padding-right:20px;
+}
+#infin .main .nav .search form{
+    width:100%;
+    height:50px;
+    background-color: aliceblue;
+    border-radius:8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding:0 5px;
+}
+#infin .main .nav .search input{
+    background: none;
+    outline: none;
+    border: none;
+    font-size:12px;
+    padding-right:10px;
+    width:100%;
+}
+#infin .main .nav .search i{
+    padding:10px;
+    font-size:15px;
+    cursor: pointer;
+    color:gray;
+}
+#infin .main .nav .options{
+    width:500px;
+    height:100%;
     position: relative;
 }
-#infin .nav .search input{
-    min-width:450px;
-    max-width:100%;
-    padding:5px 20px;
-    height:35px;
-    padding-right:50px;
-    outline:none;
-    border:none;
-    background: none;
-    background-color: aliceblue;
-    font-size:11px;
+#infin .main .nav .profile{
+    width:calc(250px);
+    height:100%;
+    position: relative;
+    border-left:1px solid rgb(0,0,0,0.1);
+    justify-content: flex-start;
+    padding:0 10px;
+}
+#infin .main .nav .profile .logo{
+    width:45px;
+    height:45px;
     border-radius:5px;
-    font-weight: bold;
-    color:grey;
+    background-color:rgb(255, 230, 230);
+    line-height:45px;
+    text-align: center;
+    font-size:21px;
+    letter-spacing:1px;
+    color:rgb(153, 0, 0);
+    font-weight:bold;
 }
-#infin .nav .search i:nth-child(3){
-    transform: translateX(-45px);
+#infin .main .nav .profile .name{
+    position: relative;
+    width:calc(100% - 45px);
+    padding-left:8px;
+    top:0;
+    left:0;
+    transform:none;
+    flex-direction: column;
+    align-items:flex-start;
 }
-#infin .nav .location,#infin .nav .options{
-    width:25%;
+#infin .main .nav .profile .name h3{
+    color: black;
+    font-size:13px;
+    letter-spacing:1px;
+    margin:4px 0;
 }
-#infin .nav .location{
-    justify-content:flex-start;
+#infin .main .nav .profile .name p{
+    font-size:11px;
+    color:green;
 }
-#infin .nav .options{
-    justify-content:flex-end;
-}
-#infin .nav i{
-    font-size:14px;
-    padding:10px;
-    margin:0 5px;
-    cursor: pointer;
-}
-
