@@ -32,7 +32,7 @@ function Board() {
               <span onClick={() => {cat_change('sort unread flex')}}>Unread</span>
               <div className='line'></div>
             </div>
-            <span className='flex' style={{'backgroundColor':'rgb(0,0,0,0.03)'}}>select</span>
+            <span className='flex select'>select</span>
           </div>
 
         </section>

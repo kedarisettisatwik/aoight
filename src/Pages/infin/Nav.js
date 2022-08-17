@@ -14,7 +14,17 @@ import { useState }from 'react';
 
 function Board() {
 
-  const [screen,setScreen] = useState('options flex light')
+  const [screen,setScreen] = useState('options flex light');
+
+  const Dark = (a) => {
+    setScreen(a);
+    document.querySelector(':root').classList.add('dark');
+  }
+
+  const Light = (a) => {
+    setScreen(a);
+    document.querySelector(':root').classList.remove('dark');
+  }
 
   return(
       <nav className='nav flex'>
@@ -23,8 +33,8 @@ function Board() {
             <input className='searchpage' type='text' placeholder='search here'></input>
           </form>
         <div className={screen}>
-          <img src={lightmode} alt='light mode' onClick={() => {setScreen('options flex light')}}></img>
-          <img src={darkmode} alt='dark mode' onClick={() => {setScreen('options flex dark')}}></img>
+          <img src={lightmode} alt='light mode' onClick={() => {Light('options flex light')}}></img>
+          <img src={darkmode} alt='dark mode' onClick={() => {Dark('options flex dark')}}></img>
           <img src={settings} alt='settings'></img>
           <img src={compose} alt='compose'></img>
           <label>Light Mode</label>
