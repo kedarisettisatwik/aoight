@@ -3,8 +3,6 @@ import React from 'react';
 import lightmode from '../../assests/light.png'
 import darkmode from '../../assests/dark.png'
 import settings from '../../assests/settings.png'
-import minimize from '../../assests/minimize.png'
-import maximize from '../../assests/expand.png'
 import compose from '../../assests/compose.png'
 import { useState }from 'react';
 
@@ -16,16 +14,7 @@ import { useState }from 'react';
 
 function Board() {
 
-  const [screen,setScreen] = useState('options flex light mini')
-
-  const Big = () => {
-    setScreen('options flex light maxi')
-    document.body.requestFullscreen()
-  }
-  const Small = () => {
-    setScreen('options flex light mini')
-    document.exitFullscreen()
-  }
+  const [screen,setScreen] = useState('options flex light')
 
   return(
       <nav className='nav flex'>
@@ -34,14 +23,10 @@ function Board() {
             <input className='searchpage' type='text' placeholder='search here'></input>
           </form>
         <div className={screen}>
-          <img src={minimize} alt='mini' onClick={Small}></img>
-          <img src={maximize} alt='maxi' onClick={Big}></img>
-          <img src={lightmode} alt='light mode'></img>
-          <img src={darkmode} alt='dark mode'></img>
+          <img src={lightmode} alt='light mode' onClick={() => {setScreen('options flex light')}}></img>
+          <img src={darkmode} alt='dark mode' onClick={() => {setScreen('options flex dark')}}></img>
           <img src={settings} alt='settings'></img>
           <img src={compose} alt='compose'></img>
-          <label>Exit Full Screen</label>
-          <label>Full Screen</label>
           <label>Light Mode</label>
           <label>Dark Mode</label>
           <label>Settings</label>
