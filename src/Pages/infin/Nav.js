@@ -19,11 +19,13 @@ function Board() {
   const Dark = (a) => {
     setScreen(a);
     document.querySelector(':root').classList.add('dark');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#000');
   }
 
   const Light = (a) => {
     setScreen(a);
     document.querySelector(':root').classList.remove('dark');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#fff');
   }
 
   return(
