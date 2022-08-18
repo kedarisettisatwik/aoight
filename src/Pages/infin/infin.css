@@ -6,7 +6,7 @@
 :root{
     --bg1:rgb(255,255,255,1);
     --shade1:rgb(0,0,0,0.03);
-    --blue:rgb(0, 102, 204);
+    --blue:rgb(0, 119, 179);
     --labeltext:white;
     --labelbg:black;
     --text:black;
@@ -14,13 +14,13 @@
     --img:0;
 }
 :root.dark{
-    --bg1:rgb(51, 51, 51);
+    --bg1:rgb(38, 38, 38);
     --shade1:rgb(77, 77, 77);
-    --blue:rgb(0, 153, 255);
+    --blue:rgb(0, 119, 179);
     --labeltext:black;
     --labelbg:white;
     --text:white;
-    --line:rgb(255,255,255,0.1);
+    --line:rgb(255,255,255,0.25);
     --img:1;
 }
 .flex{
@@ -101,22 +101,35 @@
     opacity:0.5;
     filter: invert(var(--img));
 }
-#infin .main .nav .options img:hover{
+#infin .main .nav .options i{
+    height:20px;
+    width:20px;
+    text-align: center;
+    line-height:20px;
+    transition:0.3s;
+    opacity:0.5;
+    color:var(--text);
+    cursor: pointer;
+    margin:0 10px;
+    padding:10px 0px;
+    box-sizing: content-box;
+}
+#infin .main .nav .options img:hover,#infin .main .nav .options i:hover{
     opacity: 1;
 }
-#infin .main .nav .options img:nth-child(1){
+#infin .main .nav .options img:nth-child(2){
     height:30px;
 }
-#infin .main .nav .options.dark img:nth-child(2){
+#infin .main .nav .options.dark img:nth-child(3){
     display: none;
 }
-#infin .main .nav .options.dark img:nth-child(1){
+#infin .main .nav .options.dark img:nth-child(2){
     display:block;
 }
-#infin .main .nav .options.light img:nth-child(2){
+#infin .main .nav .options.light img:nth-child(3){
     display: block;
 }
-#infin .main .nav .options.light img:nth-child(1){
+#infin .main .nav .options.light img:nth-child(2){
     display: none;
 }
 
@@ -134,16 +147,20 @@
     padding:5px 10px;
     border-radius:5px;
 }
-#infin .main .nav .options img:nth-child(1):hover ~ label:nth-child(5){
+
+#infin .main .nav .options i:hover ~ label:nth-child(6){
     opacity:1;
 }
-#infin .main .nav .options img:nth-child(2):hover ~ label:nth-child(6){
+#infin .main .nav .options img:nth-child(2):hover ~ label:nth-child(7){
     opacity:1;
 }
-#infin .main .nav .options img:nth-child(3):hover ~ label:nth-child(7){
+#infin .main .nav .options img:nth-child(3):hover ~ label:nth-child(8){
     opacity:1;
 }
-#infin .main .nav .options img:nth-child(4):hover ~ label:nth-child(8){
+#infin .main .nav .options img:nth-child(4):hover ~ label:nth-child(9){
+    opacity:1;
+}
+#infin .main .nav .options img:nth-child(5):hover ~ label:nth-child(10){
     opacity:1;
 }
 
@@ -197,6 +214,40 @@
     font-size:11px;
     color: var(--text);
 }
+#infin .sidebar .compose{
+    height:50px;
+    width:calc(100% - 30px);
+    background-color: var(--blue);
+    color:white;
+    border-radius:10px;
+    margin-left:15px;
+    font-size:14px;
+    cursor: pointer;
+    padding:10px 20px;
+    justify-content: flex-start;
+}
+#infin .sidebar .compose img{
+    width:20px;
+    filter:invert(1);
+    margin-right:15px;
+}
+#infin .sidebar .button{
+    height:50px;
+    padding:10px 20px;
+    color:var(--text);
+    margin:10px 15px 10px 15px;
+    width:calc(100% - 30px);
+    cursor: pointer;
+    justify-content: flex-start;
+    font-size:13px;
+}
+#infin .sidebar .button img{
+    width:20px;
+    margin-right:15px;
+    filter: invert(var(--img));
+}
+
+
 #infin .main .mails{
     width:420px;
     border-right:1px solid var(--line);
@@ -210,7 +261,6 @@
     border-bottom:1px solid var(--line);
     justify-content:space-between;
 }
-
 #infin .main .sort span,#infin .main .sort label{
     margin:0 10px;
     font-size:13px;

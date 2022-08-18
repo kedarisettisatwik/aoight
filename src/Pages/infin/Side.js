@@ -1,5 +1,8 @@
 import './infin.css';
 import React from 'react';
+import compose from '../../assests/compose.png';
+import mail from '../../assests/email.png';
+
 // import { useState }from 'react';
 // import Error from '../error/Error';
 // import { useLocation, useNavigate} from 'react-router-dom';
@@ -19,6 +22,17 @@ function Board() {
                 <p>satwik1330@gmail.com</p>
             </div>
         </div>
+
+        <div className='compose flex'>
+          <img src={compose} alt='compose'></img>
+          <label>New Message</label>
+        </div>
+
+        <div className='button flex'>
+          <img src={mail} alt='mail'></img>
+          <label>Inbox</label>
+        </div>
+
         
       </div>
   );

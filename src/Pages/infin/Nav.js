@@ -35,10 +35,12 @@ function Board() {
             <input className='searchpage' type='text' placeholder='search here'></input>
           </form>
         <div className={screen}>
+          <i className="fa-solid fa-arrow-rotate-right"></i>
           <img src={lightmode} alt='light mode' onClick={() => {Light('options flex light')}}></img>
           <img src={darkmode} alt='dark mode' onClick={() => {Dark('options flex dark')}}></img>
           <img src={settings} alt='settings'></img>
           <img src={compose} alt='compose'></img>
+          <label>Reload</label>
           <label>Light Mode</label>
           <label>Dark Mode</label>
           <label>Settings</label>
