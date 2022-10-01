@@ -34,6 +34,7 @@ function Savesquare() {
       
       <div className="box">
         
+        <a target='_self' href='https://kedarisettisatwik.github.io/weather/analyct.html'>weather Analyct</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/tic/tactoe.html'>Tic Tac Toe</a>
         <a target='_self' href="https://kedarisettisatwik.github.io/university/login.html" className="link">IRIS</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/editor/filter.html'>Image Editor</a>
