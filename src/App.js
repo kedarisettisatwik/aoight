@@ -1,18 +1,17 @@
 
 import React from 'react';
-import {Routes,Route,useLocation} from 'react-router-dom';
+import {Routes,Route} from 'react-router-dom';
 import Error  from './Pages/error/Error';
+import Intro from './Pages/moment/Moment';
 import Website from './Pages/website/Website';
 
 function App(){
 
-  const location = useLocation();
-
   return (
-    <Routes location={location} key={location.pathname}>
-      <Route path="/" exact element={<Website />} />
-      {/* <Route path="/infin" exact element={<Infin />} /> */}
-      <Route path="*" exact element={<Error />} />
+    <Routes>
+      <Route path="/" element={<Website />} />
+      <Route path="/moment" element={<Intro />} />
+      <Route path="*" element={<Error/>}/>
     </Routes>
   );
 }
