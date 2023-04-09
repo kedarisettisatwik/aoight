@@ -3,7 +3,6 @@ import React from 'react';
 import {Routes,Route,useLocation} from 'react-router-dom';
 import Error  from './Pages/error/Error';
 import Website from './Pages/website/Website';
-import Infin from './Pages/infin/Infin';
 
 function App(){
 
@@ -12,7 +11,7 @@ function App(){
   return (
     <Routes location={location} key={location.pathname}>
       <Route path="/" exact element={<Website />} />
-      <Route path="/infin" exact element={<Infin />} />
+      {/* <Route path="/infin" exact element={<Infin />} /> */}
       <Route path="*" exact element={<Error />} />
     </Routes>
   );
