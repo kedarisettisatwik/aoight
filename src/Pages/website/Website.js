@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 
 function Savesquare() {
     return (
@@ -102,7 +101,6 @@ function Savesquare() {
         <a target='_self' href = "https://kedarisettisatwik.github.io/projects/other/para%201.html" className="link">Invisible para</a>
         <a target='_self' href = "https://kedarisettisatwik.github.io/rain.html" className="link">RAIN..</a> 
         <a target='_self' href = "https://kedarisettisatwik.github.io/anil/miniproject/miniproject.html" className="link">Anil</a>
-        <Link to='/moment'>Moment</Link> 
    </div>
    
         </section>
