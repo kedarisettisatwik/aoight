@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/aoight/static/css/main.04713ba7.css",
-    "main.js": "/aoight/static/js/main.26fb01bb.js",
+    "main.js": "/aoight/static/js/main.27bbef48.js",
     "static/js/787.0ca863a7.chunk.js": "/aoight/static/js/787.0ca863a7.chunk.js",
     "static/media/error_page.png": "/aoight/static/media/error_page.ccef6524bc9825a16e23.png",
     "index.html": "/aoight/index.html",
     "main.04713ba7.css.map": "/aoight/static/css/main.04713ba7.css.map",
-    "main.26fb01bb.js.map": "/aoight/static/js/main.26fb01bb.js.map",
+    "main.27bbef48.js.map": "/aoight/static/js/main.27bbef48.js.map",
     "787.0ca863a7.chunk.js.map": "/aoight/static/js/787.0ca863a7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.04713ba7.css",
-    "static/js/main.26fb01bb.js"
+    "static/js/main.27bbef48.js"
   ]
 }
