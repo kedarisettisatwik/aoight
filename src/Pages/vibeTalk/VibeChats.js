@@ -9,7 +9,7 @@ function VibeChats({history}){
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     const signUp = () => {
-        navigate('/signup'); // Navigates to the '/signup' route
+        navigate('/signup');
     };
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);

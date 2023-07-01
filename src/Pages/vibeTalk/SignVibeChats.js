@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate   } from 'react-router-dom';
 import VClogo from './images/videChatLogo.png';
 import './styles/loginPage.css';
 
@@ -8,11 +7,9 @@ const colors = ["#ff6666","#679f67","#ffcc66","#66a3ff"];
 const c = colors[Math.floor(Math.random() * 4)];
 
 function SignVibeChats({history}){
-
-    const navigate = useNavigate();
-
+    
     const signIn = () => {
-        navigate('/vibeChats'); // Navigates to the '/signup' route
+        window.history.back();
     };
 
     const [passwordVisible, setPasswordVisible] = useState(false);
