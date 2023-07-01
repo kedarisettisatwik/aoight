@@ -196,3 +196,41 @@
 .password.active .eyeClose{
     display: block;
 }
+#SignForm .pro{
+    position: absolute;
+    top:10px;
+    right:10px;
+    height:50px;
+    width:50px;
+    border-radius:50%;
+    background-image: url('../images/w1.jpg');
+    background-size:300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-blend-mode: overlay;
+    overflow: hidden;
+}
+#SignForm .pro i,#SignForm .pro .image,#SignForm .pro .text{
+    display: none;
+}
+#SignForm .pro.user i{
+    font-size:35px;
+    color:rgb(0,0,0,0.3);
+    display:block;
+}
+#SignForm .pro.char .text{
+    display:block;
+    font-size:35px;
+    font-family: 'Bacasime Antique', serif;
+    line-height:50px;
+    text-align: center;
+    opacity:0.5;
+    text-transform:uppercase;
+}
+#SignForm .pro.dp .image{
+    display: block;
+    width:50px;
+    height:50px;
+    object-fit: contain;
+}

@@ -3,12 +3,16 @@ import { useNavigate   } from 'react-router-dom';
 import VClogo from './images/videChatLogo.png';
 import './styles/loginPage.css';
 
+const colors = ["#ff6666","#679f67","#ffcc66","#66a3ff"];
+
+const c = colors[Math.floor(Math.random() * 4)];
+
 function SignVibeChats({history}){
 
     const navigate = useNavigate();
 
     const signIn = () => {
-        navigate('/vibeTalk'); // Navigates to the '/signup' route
+        navigate('/vibeChats'); // Navigates to the '/signup' route
     };
 
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -17,19 +21,58 @@ function SignVibeChats({history}){
         setPasswordVisible(!passwordVisible);
     };
 
+    const [classname,setClassName] = useState('pro user');
+    const [nameInput, setNameInput] = useState('');
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [imgSrc,setImgSrc] = useState(null);
+
+    const handleNameInputChange = (e) => {
+        if (e.target.value === ''){  
+            if (imgSrc == null) setClassName('pro user');
+            else setClassName('pro dp');
+            setNameInput(e.target.value);
+        }else{
+            if (imgSrc == null) setClassName('pro char');
+            else setClassName('pro dp');
+            setNameInput(e.target.value);
+        }
+    };
+    
+    const handleFileInputChange = (e) => {
+        const file = e.target.files[0];
+        setSelectedFile(file);
+    
+        if (file) {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            setClassName('pro dp');
+            setImgSrc(reader.result);
+          };
+          reader.readAsDataURL(file);
+        } else {
+            setClassName('pro user');
+            setImgSrc(null);
+        }
+    };
+
     return(
         <section className='mainPage signup'>
         <img src={VClogo} alt='logo' className='logo'></img>
             <form id='SignForm'> 
                 <h2>VibeChats</h2>
+                <div className={classname} style={{backgroundColor:c}}>
+                    <img src={imgSrc} alt='dp' className='image'></img>
+                    <span className='text'>{nameInput[0]}</span>
+                    <i className="fa-regular fa-circle-user"></i>
+                </div>
                 <div className='details flex'>
                     <div className='name'>
                         <span>Name</span>
-                        <input type='text' placeholder='Hello Mr / Ms '></input>
+                        <input type='text' placeholder='Hello Mr / Ms ' value={nameInput} onChange={handleNameInputChange}></input>
                     </div>
                     <div className="dp">
                         <span>Select Image</span>
-                        <input type='file' accept='image/*'></input>
+                        <input type='file' accept='image/*' onChange={handleFileInputChange}></input>
                     </div>
                 </div>
                 <span>Email Address</span>
