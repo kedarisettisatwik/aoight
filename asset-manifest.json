@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/aoight/static/css/main.bc681161.css",
-    "main.js": "/aoight/static/js/main.6abe2834.js",
+    "main.css": "/aoight/static/css/main.f665433a.css",
+    "main.js": "/aoight/static/js/main.ae7106e5.js",
     "static/js/787.0ca863a7.chunk.js": "/aoight/static/js/787.0ca863a7.chunk.js",
     "static/media/error_page.png": "/aoight/static/media/error_page.ccef6524bc9825a16e23.png",
     "static/media/w1.jpg": "/aoight/static/media/w1.a3c7e6ffdc2a80deff83.jpg",
+    "static/media/videChatLogo.png": "/aoight/static/media/videChatLogo.64d581bffe8f78cb84fc.png",
     "index.html": "/aoight/index.html",
-    "main.bc681161.css.map": "/aoight/static/css/main.bc681161.css.map",
-    "main.6abe2834.js.map": "/aoight/static/js/main.6abe2834.js.map",
+    "main.f665433a.css.map": "/aoight/static/css/main.f665433a.css.map",
+    "main.ae7106e5.js.map": "/aoight/static/js/main.ae7106e5.js.map",
     "787.0ca863a7.chunk.js.map": "/aoight/static/js/787.0ca863a7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc681161.css",
-    "static/js/main.6abe2834.js"
+    "static/css/main.f665433a.css",
+    "static/js/main.ae7106e5.js"
   ]
 }
