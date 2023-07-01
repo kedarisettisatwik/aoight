@@ -10,7 +10,7 @@ function App(){
   return (
     <Routes>
       <Route path="/" element={<Website />} />
-      <Route path="/vibeTalk" element={<VibeChats/>}></Route>
+      <Route path="/vibeChats" element={<VibeChats/>}></Route>
       <Route path="/signup" element={<SignVibeTalk/>}></Route>
       <Route path="*" element={<Error/>}/>
     </Routes>
