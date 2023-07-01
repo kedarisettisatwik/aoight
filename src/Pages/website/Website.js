@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../index.css';
 
 function Savesquare() {
     return (
@@ -32,7 +33,7 @@ function Savesquare() {
       
       <div className="box">
         <a target='_self' href='https://kedarisettisatwik.github.io/dsa/Cold.html'>Cold</a>
-        <a target='_self' href='https://kedarisettisatwik.github.io/aoight/#/vibeTalk'>VibeTalk</a>
+        <a target='_self' href='/#/vibeTalk'>VibeTalk</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/error/page.html'>404</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/speech/read.html'>Text - Speech</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/weather/analyct.html'>weather Analyct</a>
