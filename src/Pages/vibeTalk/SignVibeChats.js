@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate   } from 'react-router-dom';
+import VClogo from './images/videChatLogo.png';
 import './styles/loginPage.css';
 
-function SignVibeTalk({history}){
+function SignVibeChats({history}){
 
     const navigate = useNavigate();
 
@@ -17,30 +18,27 @@ function SignVibeTalk({history}){
     };
 
     return(
-        <section className='mainPage flex' style={{backgroundColor:'#ff6666'}}>
+        <section className='mainPage signup'>
+        <img src={VClogo} alt='logo' className='logo'></img>
             <form id='SignForm'> 
-                <h2>VibeTalk</h2>
+                <h2>VibeChats</h2>
                 <div className='details flex'>
                     <div className='name'>
                         <span>Name</span>
                         <input type='text' placeholder='Hello Mr / Ms '></input>
                     </div>
-                    <div className='dob'>
-                        <span>BirthDate</span>
-                        <input type='date' value='2000-01-01'></input>
+                    <div className="dp">
+                        <span>Select Image</span>
+                        <input type='file' accept='image/*'></input>
                     </div>
                 </div>
                 <span>Email Address</span>
                 <input type='email' placeholder='enter email @gmail.com'></input>
                 <span>Password</span>
                 <div className={`password ${passwordVisible ? 'active' : ''}`} style={{position:'relative'}}>
-                    <input type={passwordVisible ? 'text' : 'password'} placeholder='*******'></input>
+                    <input type={passwordVisible ? 'text' : 'password'} placeholder={`${passwordVisible ? 'secret key' : '****** ***'}`}></input>
                     <i className="fa-solid fa-eye eyeOpen" onClick={togglePasswordVisibility}></i>
                     <i className="fa-solid fa-eye-slash eyeClose" onClick={togglePasswordVisibility}></i>
-                </div>
-                <div className="dp">
-                    <span>Select Image</span>
-                    <input type='file' accept='image/*'></input>
                 </div>
                 <input type='submit' value='Continue to Chat'></input>
                 <div className='up flex'>
@@ -52,4 +50,4 @@ function SignVibeTalk({history}){
     )
 }
 
-export default SignVibeTalk;
+export default SignVibeChats;
