@@ -3,19 +3,45 @@ import { useNavigate  } from 'react-router-dom';
 import VClogo from './images/videChatLogo.png';
 import './styles/loginPage.css';
 
+import {firestore} from '../../firebase';
 import firebase from '../../firebase';
 import { auth } from '../../firebase';
 
+
+const handleNewUser = (result) => {
+  firestore.collection('users').doc(result.uid).collection('profileDetails').doc('details').set(
+    {
+      UserMail : result.email,
+      userName : result.displayName,
+      userPic : ""
+    })
+  .then(() => {
+      // User data added successfully
+      console.log("data added");
+  })
+  .catch((error) => {
+      // Error adding user data to the database
+      console.error('Error adding user data:', error);
+  });
+}
+
 const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).then((result) => {
-        // Handle successful sign-in
-        console.log('Signed in successfully:', result.user);
-      })
-      .catch((error) => {
-        // Handle sign-in error
-        console.error('Error signing in:', error);
-      });
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider)
+    .then((result) => {
+      // Check if the user is a new user
+      if (result.additionalUserInfo.isNewUser) {
+        // Call your function for new users
+        handleNewUser(result.user);
+      } else {
+        // Handle sign-in for existing users
+        window.location.replace("/aoight/#/vibeChats/dashBoard");
+      }
+    })
+    .catch((error) => {
+      // Handle sign-in error
+      console.error('Error signing in:', error);
+    });
 };
 
 function VibeChats(){
