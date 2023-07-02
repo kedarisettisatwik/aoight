@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate  } from 'react-router-dom';
 import VClogo from './images/videChatLogo.png';
 import './styles/loginPage.css';
 
@@ -7,8 +8,7 @@ import { auth } from '../../firebase';
 
 const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider)
-      .then((result) => {
+    auth.signInWithRedirect(provider).then((result) => {
         // Handle successful sign-in
         console.log('Signed in successfully:', result.user);
       })
@@ -18,8 +18,24 @@ const signInWithGoogle = () => {
       });
 };
 
-
 function VibeChats(){
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      // Check if the user is already authenticated
+      const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in, redirect to another page
+          navigate('/vibeChats/dashBoard'); // Replace '/dashboard' with the desired destination page
+        }
+      });
+
+      return () => {
+        // Clean up the listener
+        unsubscribe();
+      };
+    }, [navigate]);
 
     return(
         <section className="mainPage login">
