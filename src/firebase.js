@@ -1,17 +1,19 @@
-import { getFirestore } from 'firebase/firestore/lite';
-import { initializeApp } from 'firebase/app';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB2JXopwTJxwKT6kDMXWp-IH50_E-6jwRo",
-  authDomain: "react-aoight.firebaseapp.com",
-  databaseURL: "https://react-aoight-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "react-aoight",
-  storageBucket: "react-aoight.appspot.com",
-  messagingSenderId: "166575933341",
-  appId: "1:166575933341:web:5e065da801177535689174"
+  apiKey: "AIzaSyAhDpiRoxpKIPlAYeocGS2yKZIe-gJmpAA",
+  authDomain: "vibechats.firebaseapp.com",
+  projectId: "vibechats",
+  storageBucket: "vibechats.appspot.com",
+  messagingSenderId: "571105366034",
+  appId: "1:571105366034:web:b29b598221cdbfa03788cb"
 };
 
-const app = initializeApp(firebaseConfig);
-const base = getFirestore(app);
+firebase.initializeApp(firebaseConfig);
 
-export default base;
+export const auth = firebase.auth();
+export default firebase;

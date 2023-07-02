@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import VClogo from './images/videChatLogo.png';
 import './styles/loginPage.css';
-
+import firebase from '../../firebase';
+import { auth } from '../../firebase';
 const colors = ["#ff6666","#679f67","#ffcc66","#66a3ff"];
 
 const c = colors[Math.floor(Math.random() * 4)];
+
+const signInWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        // Handle successful sign-in
+        console.log('Signed in successfully:', result.user);
+      })
+      .catch((error) => {
+        // Handle sign-in error
+        console.error('Error signing in:', error);
+      });
+};
 
 function SignVibeChats({history}){
     
@@ -62,6 +76,8 @@ function SignVibeChats({history}){
         }
     };
 
+    
+
     const registerForm = (e) => {
         e.preventDefault();
         // console.log(nameInput);
@@ -69,8 +85,7 @@ function SignVibeChats({history}){
         // console.log(passInput);
         // console.log(imgSrc);
         if (nameInput && nameInput.length >= 2 && nameInput.match(/^[A-Za-z]{2}/) && passInput && passInput.length >= 3) {
-                // no error
-                alert("account created succesfully");
+            alert("account created succesfully");
         }else if (passInput && passInput.length >= 3){
             // error in name
             alert("name should start with atleast 2 aplhabets");
@@ -109,6 +124,7 @@ function SignVibeChats({history}){
                     <i className="fa-solid fa-eye-slash eyeClose" onClick={togglePasswordVisibility}></i>
                 </div>
                 <input type='submit' value='Continue to Chat'></input>
+                <button onClick={signInWithGoogle} className='googleBtn'>Use Google Account</button>
                 <div className='up flex'>
                     <p>Already have Account ?</p>
                     <label onClick={signIn}>LogIn Now</label>

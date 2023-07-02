@@ -10,6 +10,10 @@
     align-items: center;
     flex-direction: column;
 }
+*::-webkit-scrollbar{
+    -webkit-appearance: none;
+    width:0px;
+}
 .mainPage{
     width:100vw;
     min-height:100vh;
@@ -28,10 +32,6 @@
 }
 .mainPage.signup{
     background-color:#ff6666;
-}
-.mainPage::-webkit-scrollbar{
-    -webkit-appearance: none;
-    width:0px;
 }
 .mainPage .logo{
     width:500px;
@@ -109,7 +109,7 @@
     outline:none;
     border:none;
     color:white;
-    margin-bottom:10px;
+    margin-bottom:5px;
     display: block;
     cursor: pointer;
     border:2px solid black;
@@ -233,4 +233,21 @@
     width:50px;
     height:50px;
     object-fit: contain;
+}
+#LogInForm .googleBtn,#SignForm .googleBtn{
+    width:100%;
+    background-color:#f2f2f2;
+    padding:10px;
+    outline:none;
+    border: none;
+    margin-bottom:10px;
+    background-image: url('../images/w1.jpg');
+    background-blend-mode: overlay; 
+    background-size: cover;
+    background-color:#679f67;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+#SignForm .googleBtn{
+    background-color: #ff6666;
 }

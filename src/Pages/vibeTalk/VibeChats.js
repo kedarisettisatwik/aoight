@@ -3,6 +3,23 @@ import { useNavigate   } from 'react-router-dom';
 import VClogo from './images/videChatLogo.png';
 import './styles/loginPage.css';
 
+import firebase from '../../firebase';
+import { auth } from '../../firebase';
+
+const signInWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        // Handle successful sign-in
+        console.log('Signed in successfully:', result.user);
+      })
+      .catch((error) => {
+        // Handle sign-in error
+        console.error('Error signing in:', error);
+      });
+};
+
+
 function VibeChats({history}){
 
     const navigate = useNavigate();
@@ -47,6 +64,7 @@ function VibeChats({history}){
                     <i className="fa-solid fa-eye-slash eyeClose" onClick={togglePasswordVisibility}></i>
                 </div>
                 <input type='submit' value='Continue to Chat'></input>
+                <button onClick={signInWithGoogle} className='googleBtn'>Use Google Account</button>
                 <div className='up flex'>
                     <p>Not Yet Signed Up ?</p>
                     <label onClick={signUp}>SignUp Now</label>
