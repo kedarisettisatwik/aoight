@@ -8,7 +8,7 @@ import { auth } from '../../firebase';
 
 const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithRedirect(provider).then((result) => {
+    auth.signInWithPopup(provider).then((result) => {
         // Handle successful sign-in
         console.log('Signed in successfully:', result.user);
       })
@@ -27,7 +27,7 @@ function VibeChats(){
       const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           // User is signed in, redirect to another page
-          navigate('/vibeChats/dashBoard'); // Replace '/dashboard' with the desired destination page
+          window.location.replace("/aoight/#/vibeChats/dashBoard");
         }
       });
 
