@@ -20,6 +20,8 @@ function SignVibeChats({history}){
 
     const [classname,setClassName] = useState('pro user');
     const [nameInput, setNameInput] = useState('');
+    const [mailInput, setMailInput] = useState('');
+    const [passInput, setPassInput] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
     const [imgSrc,setImgSrc] = useState(null);
 
@@ -34,6 +36,14 @@ function SignVibeChats({history}){
             setNameInput(e.target.value);
         }
     };
+
+    const handleMailInputChange = (e) =>{
+        setMailInput(e.target.value);
+    };
+
+    const handlePassInputChange = (e) => {
+        setPassInput(e.target.value);
+    }
     
     const handleFileInputChange = (e) => {
         const file = e.target.files[0];
@@ -52,10 +62,28 @@ function SignVibeChats({history}){
         }
     };
 
+    const registerForm = (e) => {
+        e.preventDefault();
+        // console.log(nameInput);
+        // console.log(mailInput);
+        // console.log(passInput);
+        // console.log(imgSrc);
+        if (nameInput && nameInput.length >= 2 && nameInput.match(/^[A-Za-z]{2}/) && passInput && passInput.length >= 3) {
+                // no error
+                alert("account created succesfully");
+        }else if (passInput && passInput.length >= 3){
+            // error in name
+            alert("name should start with atleast 2 aplhabets");
+        }else{
+            // error in password
+            alert("password must have more than 3 letters");
+        }
+    }
+
     return(
         <section className='mainPage signup'>
         <img src={VClogo} alt='logo' className='logo'></img>
-            <form id='SignForm'> 
+            <form id='SignForm' onSubmit={registerForm}> 
                 <h2>VibeChats</h2>
                 <div className={classname} style={{backgroundColor:c}}>
                     <img src={imgSrc} alt='dp' className='image'></img>
@@ -65,7 +93,7 @@ function SignVibeChats({history}){
                 <div className='details flex'>
                     <div className='name'>
                         <span>Name</span>
-                        <input type='text' placeholder='Hello Mr / Ms ' value={nameInput} onChange={handleNameInputChange}></input>
+                        <input type='text' placeholder='Hello Mr / Ms ' value={nameInput} required onChange={handleNameInputChange}></input>
                     </div>
                     <div className="dp">
                         <span>Select Image</span>
@@ -73,10 +101,10 @@ function SignVibeChats({history}){
                     </div>
                 </div>
                 <span>Email Address</span>
-                <input type='email' placeholder='enter email @gmail.com'></input>
+                <input type='email' placeholder='enter email @gmail.com' value={mailInput} required onChange={handleMailInputChange}></input>
                 <span>Password</span>
                 <div className={`password ${passwordVisible ? 'active' : ''}`} style={{position:'relative'}}>
-                    <input type={passwordVisible ? 'text' : 'password'} placeholder={`${passwordVisible ? 'secret key' : '****** ***'}`}></input>
+                    <input type={passwordVisible ? 'text' : 'password'} required placeholder={`${passwordVisible ? 'secret key' : '****** ***'}`} value={passInput} onChange={handlePassInputChange}></input>
                     <i className="fa-solid fa-eye eyeOpen" onClick={togglePasswordVisibility}></i>
                     <i className="fa-solid fa-eye-slash eyeClose" onClick={togglePasswordVisibility}></i>
                 </div>
