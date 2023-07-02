@@ -7,12 +7,16 @@ import {firestore} from '../../firebase';
 import firebase from '../../firebase';
 import { auth } from '../../firebase';
 
+const c = ["#ffdd99","#ffb3b3","#99ff99","#ffb3ff","#33ccff"];
+const col = c[Math.floor(Math.random()*5)];
 
 const handleNewUser = (result) => {
   firestore.collection('users').doc(result.uid).collection('profileDetails').doc('details').set(
     {
       UserMail : result.email,
       userName : result.displayName,
+      userStatus : "online",
+      userColor : col,
       userPic : ""
     })
   .then(() => {

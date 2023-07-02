@@ -1,0 +1,107 @@
+.screen{
+    width:100vw;
+    height:100vh;
+    position: relative;
+    overflow: hidden;
+    background-image: url('../images/w1.jpg');
+    background-blend-mode: overlay; 
+    background-size: contain;
+    background-repeat: repeat-x;
+    background-color: #ff6666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.screen .box{
+    width:1000px;
+    max-width:calc(100% - 100px);
+    height:calc(100vh - 80px);
+    background-color: white;
+    box-shadow: 0 0 20px rgb(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    border:3px solid white;
+}
+.screen .box .left{
+    position: relative;
+    width:350px;
+    height:100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.screen .box .chatArea{
+    width:calc(100% - 350px);
+    height:100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-image: url('../images/w1.jpg');
+    background-blend-mode: overlay; 
+    background-size: contain;
+    background-repeat: repeat;
+    background-color: #ff6666;
+}
+.screen .box .chatArea .logo{
+    position: absolute;
+    width:400px;
+    max-width:100%;
+    max-height:400px;
+    object-fit:scale-down;
+    opacity:0.2;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+.screen .box .left header{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:50px;
+    padding:0px 20px;
+    flex-direction: row;
+}
+.screen .box .left header::after{
+    content: '';
+    position: absolute;
+    bottom:0;
+    width:calc(100% - 40px);
+    height:1px;
+    background-color:rgb(0,0,0,0.2);
+}
+.screen .box .left header h2{
+    font-size:1em;
+    font-weight:100;
+}
+.screen .box .left header i{
+    padding:10px;
+    cursor:pointer;
+    opacity:0.5;
+}
+.screen .box .left .nav{
+    width:100%;
+    position:relative;
+    margin:5px 0;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+.screen .box .left .nav span{
+    line-height:40px;
+    text-align: center;
+    font-size:0.9em;
+    cursor: pointer;
+    opacity:0.5;
+}
+.screen .box .left .nav span.active{
+    font-size:0.75em;
+    opacity:1;
+    font-weight: bold;
+    letter-spacing:1px;
+    color: #ff6666;
+}
