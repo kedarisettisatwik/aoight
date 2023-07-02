@@ -6,7 +6,7 @@
     background-image: url('../images/w1.jpg');
     background-blend-mode: overlay; 
     background-size: contain;
-    background-repeat: repeat-x;
+    background-repeat: repeat;
     background-color: #ff6666;
     display: flex;
     justify-content: center;
@@ -85,23 +85,26 @@
 .screen .box .left .nav{
     width:100%;
     position:relative;
-    margin:5px 0;
+    margin:10px 0;
     display: flex;
     justify-content:space-evenly;
     align-items: center;
     flex-direction: row;
 }
 .screen .box .left .nav span{
-    line-height:40px;
+    line-height:35px;
     text-align: center;
     font-size:0.9em;
     cursor: pointer;
     opacity:0.5;
+    border-radius:5px;
 }
 .screen .box .left .nav span.active{
     font-size:0.75em;
     opacity:1;
     font-weight: bold;
     letter-spacing:1px;
-    color: #ff6666;
+    background-color: #ff6666;
+    color: white;
+    padding:0 10px;
 }
