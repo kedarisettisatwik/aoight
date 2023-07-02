@@ -30,9 +30,6 @@
 .mainPage.login{
     background-color:#679f67;
 }
-.mainPage.signup{
-    background-color:#ff6666;
-}
 .mainPage .logo{
     width:500px;
     max-height:100%;
@@ -57,7 +54,7 @@
         justify-content: flex-start;
     }
 }
-#LogInForm,#SignForm{
+#LogInForm{
     width:350px;
     max-width:100%;
     padding:0px 20px;
@@ -65,10 +62,7 @@
     box-shadow:0 0 30px rgb(0,0,0,0.2);
     position: relative;
 }
-#SignForm{
-    box-shadow:0 0 30px rgb(0,0,0,0.3);
-}
-#LogInForm h2,#SignForm h2{
+#LogInForm h2{
     font-family: 'Bacasime Antique', serif;
     font-size:2.5em;
     font-weight:100;
@@ -76,167 +70,13 @@
     border-bottom:1px solid rgb(0,0,0,0.1);
     padding-bottom:5px;
 }
-#LogInForm span,#SignForm span{
-    font-size:0.8em;
+#LogInForm span{
+    font-size:0.85em;
+    margin:10px 0;
     display: block;
-    font-weight: 600;
-    letter-spacing:1px;
 }
-#LogInForm input[type="email"],
-#SignForm input[type="email"],
-#LogInForm .password input,
-#SignForm .password input{
-    margin:5px 0 15px 0;
-    padding:10px;
-    height:40px;
-    font-size:0.8em;
+#LogInForm .googleBtn{
     width:100%;
-    display: block;
-    outline:none;
-    border:1px solid rgb(0,0,0,0.2);
-    transition:0.2s;
-}
-#LogInForm .password input,
-#SignForm .password input{
-    letter-spacing:2px;
-    padding-right:40px;
-}
-#LogInForm input[type="submit"],
-#SignForm input[type="submit"]{
-    background-color:black;
-    padding:10px;
-    width:100%;
-    outline:none;
-    border:none;
-    color:white;
-    margin-bottom:5px;
-    display: block;
-    cursor: pointer;
-    border:2px solid black;
-    transition:0.4s;
-}
-#LogInForm input[type="submit"]:hover,
-#SignForm input[type="submit"]:hover{
-    background-color: white;
-    color: black;
-}
-#LogInForm .up,
-#SignForm .up{
-    flex-direction:row;
-    font-size:0.8em;
-    margin-bottom:10px;
-}
-#LogInForm .up p,
-#SignForm .up p{
-    margin-right:10px;
-}
-#LogInForm .up label,
-#SignForm .up label{
-    margin-left:10px;
-    cursor: pointer;
-    padding:10px;
-}
-#LogInForm .up label:hover,
-#SignForm .up label:hover{
-    text-decoration: underline;
-}
-#SignForm .details{
-    flex-direction: row;
-    align-items: stretch;
-    margin-bottom:15px;
-    width:100%;
-    position:relative;
-}
-#SignForm .details .name,
-#SignForm .details .dp{
-    width:50%;
-    position: relative;
-}
-#SignForm .details .name{
-    padding-right:10px;
-}
-#SignForm .details .dp{
-    padding-left:10px;
-}
-#SignForm .details .name input,
-#SignForm .details .dp input{
-    width:100%;
-    padding:10px;
-    height:40px;
-    font-size:0.8em;
-    display: block;
-    outline:none;
-    border:1px solid rgb(0,0,0,0.2);
-    margin-top:5px;
-}
-#SignForm .details .dp input{
-    padding: 10px 0;
-    border:none;
-}
-.password i{
-    line-height:40px;
-    text-align: center;
-    position:absolute;
-    top:50%;
-    right:0px;
-    transform:translateY(-50%);
-    cursor: pointer;
-    display: none;
-    height:40px;
-    width:40px;
-    border-radius:4px;
-    opacity:0.3;
-}
-.password .eyeOpen{
-    display: block;
-}
-.password.active .eyeOpen{
-    display: none;
-}
-.password.active .eyeClose{
-    display: block;
-}
-#SignForm .pro{
-    position: absolute;
-    top:10px;
-    right:10px;
-    height:50px;
-    width:50px;
-    border-radius:50%;
-    background-image: url('../images/w1.jpg');
-    background-size:300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-blend-mode: overlay;
-    overflow: hidden;
-}
-#SignForm .pro i,#SignForm .pro .image,#SignForm .pro .text{
-    display: none;
-}
-#SignForm .pro.user i{
-    font-size:35px;
-    color:rgb(0,0,0,0.3);
-    display:block;
-}
-#SignForm .pro.char .text{
-    display:block;
-    font-size:35px;
-    font-family: 'Bacasime Antique', serif;
-    line-height:50px;
-    text-align: center;
-    opacity:0.5;
-    text-transform:uppercase;
-}
-#SignForm .pro.dp .image{
-    display: block;
-    width:50px;
-    height:50px;
-    object-fit: contain;
-}
-#LogInForm .googleBtn,#SignForm .googleBtn{
-    width:100%;
-    background-color:#f2f2f2;
     padding:10px;
     outline:none;
     border: none;
@@ -247,7 +87,5 @@
     background-color:#679f67;
     font-weight:bold;
     letter-spacing:1px;
-}
-#SignForm .googleBtn{
-    background-color: #ff6666;
+    cursor: pointer;
 }
