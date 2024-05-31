@@ -32,6 +32,8 @@ function Savesquare() {
       <h2 className="pro_head">Projects</h2>
       
       <div className="box">
+        <a target='_self' href='https://kedarisettisatwik.github.io/tend/'>TND</a>
+        <a target='_self' href='https://kedarisettisatwik.github.io/sudoku/sudoku.html'>Sudoku</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/dsa/Cold.html'>Cold</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/aoight/#/vibeChats'>VibeChats</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/error/page.html'>404</a>
