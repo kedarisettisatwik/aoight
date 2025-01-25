@@ -32,7 +32,7 @@ function Savesquare() {
       <h2 className="pro_head">Projects</h2>
       
       <div className="box">
-        <a target='_self' href='https://kedarisettisatwik.github.io/BBU/portfolio.html'>TND</a>
+        <a target='_self' href='https://kedarisettisatwik.github.io/BBU/portfolio.html'>BBU</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/tend/'>TND</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/sudoku/sudoku.html'>Sudoku</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/dsa/Cold.html'>Cold</a>
