@@ -21,7 +21,7 @@ function Savesquare() {
                     <a href="https://www.youtube.com/channel/UCpLOopnR9TX9b1fjcDpapsw" target="_blank" rel="noreferrer"><i className="fab fa-youtube"></i></a>
                 </div>
                 <div className="me">
-                    <a target='_self' href='https://kedarisettisatwik.github.io/me/resume.html' rel='noreferrer'>About me..</a>
+                    <a target='_self' href='https://kedarisettisatwik.github.io/BBU/portfolio.html' rel='noreferrer'>About me..</a>
                 </div>
             </div>
       
@@ -32,6 +32,7 @@ function Savesquare() {
       <h2 className="pro_head">Projects</h2>
       
       <div className="box">
+        <a target='_self' href='https://kedarisettisatwik.github.io/BBU/portfolio.html'>TND</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/tend/'>TND</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/sudoku/sudoku.html'>Sudoku</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/dsa/Cold.html'>Cold</a>
