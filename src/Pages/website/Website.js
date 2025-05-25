@@ -33,6 +33,7 @@ function Savesquare() {
       
       <div className="box">
         <a target='_self' href='https://kedarisettisatwik.github.io/BBU/portfolio.html'>BBU</a>
+        <a target='_self' href='https://kedarisettisatwik.github.io/arts/gallery.html'>Arts By Code</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/tend/'>TND</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/sudoku/sudoku.html'>Sudoku</a>
         <a target='_self' href='https://kedarisettisatwik.github.io/dsa/Cold.html'>Cold</a>
