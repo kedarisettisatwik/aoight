@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/aoight/static/css/main.b90a51aa.css",
-    "main.js": "/aoight/static/js/main.2271061f.js",
+    "main.js": "/aoight/static/js/main.2f4f477c.js",
     "static/js/787.0ca863a7.chunk.js": "/aoight/static/js/787.0ca863a7.chunk.js",
     "index.html": "/aoight/index.html",
     "main.b90a51aa.css.map": "/aoight/static/css/main.b90a51aa.css.map",
-    "main.2271061f.js.map": "/aoight/static/js/main.2271061f.js.map",
+    "main.2f4f477c.js.map": "/aoight/static/js/main.2f4f477c.js.map",
     "787.0ca863a7.chunk.js.map": "/aoight/static/js/787.0ca863a7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b90a51aa.css",
-    "static/js/main.2271061f.js"
+    "static/js/main.2f4f477c.js"
   ]
 }
